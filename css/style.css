@@ -13,6 +13,7 @@ body{
     background:#f5f7fb;
     color:#333;
     line-height:1.6;
+    margin: 0;
 }
 
 
@@ -30,6 +31,12 @@ header{
     box-shadow:0 2px 10px rgba(0,0,0,0.1);
     position:sticky;
     top:0;
+}
+
+/* LOGO */
+
+.logo img{
+    height: 60px;
 }
 
 .logo h2{
@@ -55,88 +62,197 @@ nav ul li a{
 nav ul li a:hover{
     color:#0077b6;
 }
+/* NAVBAR */
+.navbar {
+    display: flex;
+    gap: 20px;
+    padding: 15px 30px;
+    background: white;
+    border-bottom: 2px solid #ddd;
+}
 
+.navbar a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.navbar a:hover {
+    color: #2c5aa0;
+    transform: scale(1.1);
+    background-color: #eaf3ff;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.navbar a:focus {
+    outline: 2px solid #2c5aa0;
+    background-color: #eaf3ff;
+}
 
 
 /* ========================
-HERO
-======================== */
-
-.hero{
-    height:500px;
-    background:url("https://images.unsplash.com/photo-1586773860418-d37222d8fce3") center/cover no-repeat;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
-    text-align:center;
-    color:white;
-    padding:20px;
+   SECCIÓN SERVICIOS PREMIUM
+   ======================== */
+.seccion-servicios-premium {
+    width: 100%;
+    background-color: #003d5b; /* Azul profundo */
+    min-height: 100vh;
+    display: flex;
 }
 
-.hero h1{
-    font-size:48px;
-    margin-bottom:20px;
+.servicios-split-container {
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap; /* Para responsive */
 }
 
-.hero p{
-    font-size:20px;
-    max-width:700px;
-    margin-bottom:25px;
+/* Lado de la Imagen */
+.servicios-visual {
+    flex: 1;
+    min-width: 300px;
+    background: #f5f7fb; /* O usa el mismo color que el fondo de tu web si tienes uno */
+    display: flex; /* Centra la imagen si sobra espacio */
+    align-items: center;
+    justify-content: center;
+    padding: 20px; /* Un poco de aire alrededor */
 }
 
-.hero button{
-    padding:15px 30px;
-    border:none;
-    background:#0077b6;
-    color:white;
-    font-size:16px;
-    border-radius:5px;
-    cursor:pointer;
-    transition:0.3s;
+.servicios-visual img {
+    width: 100%; /* Intenta ocupar el ancho */
+    height: 100%; /* Mantiene la proporción original */
+    max-height: 80vh; /* Evita que se haga gigante hacia abajo */
+    object-fit: contain; /* Muestra la imagen COMPLETA dentro del contenedor */
+    display: block;
 }
 
-.hero button:hover{
-    background:#005f8f;
+/* Lado del Contenido */
+.servicios-info-panel {
+    flex: 2;
+    padding: 80px 50px;
+    color: white;
 }
 
-
-
-/* ========================
-SERVICIOS
-======================== */
-
-.servicios{
-    padding:80px 10%;
-    text-align:center;
+.servicios-header h2 {
+    font-size: 42px;
+    font-weight: 700;
+    margin-bottom: 30px;
 }
 
-.servicios h2{
-    margin-bottom:50px;
-    font-size:32px;
+.servicios-subhead {
+    display: flex;
+    gap: 60px;
+    margin-bottom: 50px;
+    padding-bottom: 20px;
 }
 
-.lista-servicios{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-    gap:30px;
+.subhead-item .label {
+    font-size: 11px;
+    letter-spacing: 1px;
+    opacity: 0.8;
 }
 
-.servicio{
-    background:white;
-    padding:30px;
-    border-radius:10px;
-    box-shadow:0 5px 15px rgba(0,0,0,0.1);
-    transition:0.3s;
+.subhead-item .valor {
+    font-size: 22px;
+    font-weight: bold;
+    margin-top: 5px;
 }
 
-.servicio:hover{
-    transform:translateY(-5px);
+.separator {
+    border-left: 1px solid rgba(255, 255, 255, 0.3);
+    padding-left: 40px;
 }
 
-.servicio h3{
-    color:#0077b6;
-    margin-bottom:15px;
+/* Grid de Cartas */
+.cartas-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+}
+
+.card-white {
+    background: white;
+    border-radius: 12px;
+    padding: 40px 25px;
+    color: #333;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+    transition: transform 0.3s ease;
+}
+
+.card-white:hover {
+    transform: translateY(-10px);
+}
+
+.card-icon {
+    font-size: 45px;
+    margin-bottom: 15px;
+}
+
+.card-white h3 {
+    color: #005677;
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+
+.card-divider {
+    width: 100%;
+    border: 0;
+    border-top: 1px solid #efefef;
+    margin-bottom: 25px;
+}
+
+/* Lista con Checks */
+.card-list {
+    list-style: none;
+    width: 100%;
+    text-align: left;
+    margin-bottom: 30px;
+}
+
+.card-list li {
+    font-size: 14px;
+    margin-bottom: 12px;
+    padding-left: 30px;
+    position: relative;
+    color: #555;
+}
+
+.card-list li::before {
+    content: "✔️"; /* Puedes usar un icono de FontAwesome si prefieres */
+    position: absolute;
+    left: 0;
+    color: #0077b6;
+    font-size: 14px;
+}
+
+/* Botón de la carta */
+.card-btn {
+    margin-top: auto; /* Mantiene el botón siempre abajo */
+    background: #003d5b;
+    color: white;
+    border: none;
+    padding: 12px 35px;
+    border-radius: 25px;
+    font-size: 13px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.card-btn:hover {
+    background: #0077b6;
+}
+
+/* Ajustes Responsive */
+@media (max-width: 1200px) {
+    .servicios-visual {
+        display: none; /* Oculta la imagen en tablets/móviles para priorizar las cartas */
+    }
 }
 
 
@@ -284,6 +400,7 @@ nav ul li{
     font-size:18px;
 }
 
+
 /* ========================
 estilos para productos.html
 ======================== */
@@ -391,4 +508,126 @@ estilos para productos.html
     width: 100%;
     height: auto;
     border-radius: 10px;
+}
+
+/* ========================
+   HERO & TARJETAS (NUEVO)
+   ======================== */
+.hero {
+    position: relative;
+    height: 85vh; /* Ocupa casi toda la pantalla */
+    background: url('https://images.unsplash.com/photo-1586773860418-d37222d8fce3') center/cover no-repeat;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.hero-overlay {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.2); /* Oscurece un poco la imagen para que se lea el texto */
+    text-align: center;
+    color: white;
+    padding: 0 20px;
+}
+
+.hero-content h1 {
+    font-size: 42px;
+    margin-bottom: 15px;
+    text-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+}
+
+.hero-content p {
+    font-size: 18px;
+    max-width: 600px;
+    margin: 0 auto 30px;
+}
+
+.btn-principal {
+    padding: 12px 30px;
+    background: #0077b6;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+/* CONTENEDOR DE TARJETAS FLOTANTES */
+.tarjetas-flotantes {
+    display: flex;
+    width: 100%;
+    height: 160px;
+}
+
+/* TARJETA GLASS (Transparente) */
+.tarjeta-glass {
+    flex: 1;
+    background: rgba(255, 255, 255, 0.15); /* Transparencia */
+    backdrop-filter: blur(15px); /* Efecto vidrio */
+    -webkit-backdrop-filter: blur(15px);
+    border-right: 1px solid rgba(255, 255, 255, 0.2);
+    display: flex;
+    align-items: center;
+    padding: 0 5%;
+    color: white;
+    position: relative;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.tarjeta-glass:hover {
+    background: rgba(255, 255, 255, 0.25);
+}
+
+/* TARJETA AZUL */
+.tarjeta-azul {
+    flex: 1.2;
+    background: #003d5b; /* Azul oscuro intenso */
+    color: white;
+    display: flex;
+    align-items: center;
+    padding: 0 5%;
+    position: relative;
+}
+
+/* ICONOS Y TEXTO INTERNO */
+.icon { font-size: 35px; margin-right: 15px; }
+
+.tarjeta-glass h3 { font-size: 1.2rem; max-width: 150px; }
+
+.contacto-directo {
+    display: flex;
+    flex-direction: column;
+    margin-top: 5px;
+}
+
+.label { font-size: 11px; letter-spacing: 1px; opacity: 0.8; }
+
+.numero { font-size: 28px; font-weight: bold; }
+
+/* LAS FLECHAS CIRCULARES */
+.arrow-circle, .arrow-circle-white {
+    position: absolute;
+    right: 25px;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+
+.arrow-circle {
+    background: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+.arrow-circle-white {
+    background: white;
+    color: #003d5b;
 }

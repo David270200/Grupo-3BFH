@@ -13,14 +13,13 @@
 <header>
 
     <div class="logo">
-        <h2>Hospital Vida Salud</h2>
-    </div>
-
+<img src="img/logo.png" alt="Hospital BioFarma">
+</div>
     <nav>
         <ul>
             
-            <li><a href="#">Inicio</a></li>
-            <li><a href="#">Servicios</a></li>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="servicios.html">Servicios</a></li>
             <li><a href="Doctores.html">Doctores</a></li>
             <li><a href="productos.html">Productos</a></li>
             <li><a href="#">Noticias</a></li>
@@ -30,19 +29,45 @@
 
 </header>
 
-
 <!-- HERO / BANNER -->
 <section class="hero">
+    <div class="hero-overlay">
+        <div class="hero-content">
+            <h1>Tu salud es nuestra prioridad</h1>
+            <p>Ofrecemos atención médica profesional con tecnología moderna para garantizar el bienestar de nuestros pacientes.</p>
+            <button class="btn-principal">Ver Servicios</button>
+        </div>
+    </div>
 
-    <h1>Tu salud es nuestra prioridad</h1>
+<div class="tarjetas-flotantes">
+        <div class="tarjeta-glass">
+            <div class="icon">🤍</div>
+            <div class="info">
+                <h3>Nuestros servicios</h3>
+            </div>
+            <div class="arrow-circle">→</div>
+        </div>
 
-    <p>
-        Ofrecemos atención médica profesional con tecnología moderna
-        para garantizar el bienestar de nuestros pacientes.
-    </p>
+        <div class="tarjeta-glass">
+            <div class="icon">🤰</div>
+            <div class="info">
+                <h3>Planes de maternidad</h3>
+            </div>
+            <div class="arrow-circle">→</div>
+        </div>
 
-    <button>Ver Servicios</button>
-
+        <div class="tarjeta-azul">
+            <div class="info-emergencia">
+                <h3>¿Tienes una emergencia?</h3>
+                <div class="contacto-directo">
+                    <span class="label">LÍNEA DE CONSULTA</span>
+                    <span class="numero">305-6305</span>
+                </div>
+            </div>
+            <div class="arrow-circle-white">→</div>
+        </div>
+    </div>
+</section>
 </section>
 
 
@@ -69,8 +94,6 @@
 </div>
 
 </section>
-
-
 
 <!-- VIDEO -->
 <section class="video">
@@ -108,36 +131,71 @@ loading="lazy">
 
 
 <!-- SERVICIOS -->
-<section class="servicios">
-
-    <h2>Nuestros Servicios</h2>
-
-    <div class="lista-servicios">
-
-        <div class="servicio">
-            <h3>Emergencias</h3>
-            <p>Atención médica inmediata las 24 horas.</p>
+<section class="seccion-servicios-premium">
+    <div class="servicios-split-container">
+        
+        <div class="servicios-visual">
+            <img src="img/radiologia.webp">
         </div>
 
-        <div class="servicio">
-            <h3>Laboratorio</h3>
-            <p>Pruebas clínicas con resultados rápidos y precisos.</p>
-        </div>
+        <div class="servicios-info-panel">
+            
+            <div class="servicios-header">
+                <h2>Nuestros Servicios</h2>
+                <div class="servicios-subhead">
+                    <div class="subhead-item">
+                        <span class="label">LÍNEA DE CONSULTA</span>
+                        <p class="valor">📞 305-6300</p>
+                    </div>
+                    <div class="subhead-item separator">
+                        <span class="label">INFORMACIÓN DE PACIENTE</span>
+                        <p class="valor">📄 Portal de resultados</p>
+                    </div>
+                </div>
+            </div>
 
-        <div class="servicio">
-            <h3>Cirugía</h3>
-            <p>Especialistas altamente capacitados.</p>
-        </div>
+            <div class="cartas-grid">
+                
+                <article class="card-white">
+                    <div class="card-icon">🚑</div>
+                    <h3>Servicios Ambulatorios</h3>
+                    <hr class="card-divider">
+                    <ul class="card-list">
+                        <li>Laboratorio Clínico</li>
+                        <li>Radiología e Imágenes</li>
+                        <li>Cuarto de Urgencia</li>
+                    </ul>
+                    <button class="card-btn">VER TODOS</button>
+                </article>
 
-        <div class="servicio">
-            <h3>Pediatría</h3>
-            <p>Atención especializada para niños.</p>
-        </div>
+                <article class="card-white">
+                    <div class="card-icon">🏥</div>
+                    <h3>Servicios Hospitalarios</h3>
+                    <hr class="card-divider">
+                    <ul class="card-list">
+                        <li>Habitaciones</li>
+                        <li>Cuidados Intensivos</li>
+                        <li>Salón de Operaciones</li>
+                    </ul>
+                    <button class="card-btn">VER TODOS</button>
+                </article>
 
+                <article class="card-white">
+                    <div class="card-icon">👨‍⚕️</div>
+                    <h3>Servicios Relacionados</h3>
+                    <hr class="card-divider">
+                    <ul class="card-list">
+                        <li>Clínica San Fernando</li>
+                        <li>Centro Urológico</li>
+                        <li>Instituto de Neumología</li>
+                    </ul>
+                    <button class="card-btn">VER TODOS</button>
+                </article>
+
+            </div>
+        </div>
     </div>
-
 </section>
-
 
 <!-- DOCTORES -->
 <section class="doctores">
