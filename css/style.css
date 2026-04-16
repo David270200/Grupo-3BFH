@@ -285,3 +285,31 @@ nav ul li{
 }
 
 }
+
+/* PROMOCIONES */
+
+.promociones{
+    padding: 60px 5%;
+    text-align: center;
+}
+
+.promociones h2{
+    margin-bottom: 40px;
+    font-size: 32px;
+}
+
+.contenedor-promos{
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+}
+
+.promo{
+    flex: 1;
+}
+
+.promo img{
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
