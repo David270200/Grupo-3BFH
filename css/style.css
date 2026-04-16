@@ -1,0 +1,287 @@
+/* ========================
+RESET
+======================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    background:#f5f7fb;
+    color:#333;
+    line-height:1.6;
+}
+
+
+
+/* ========================
+HEADER / NAVBAR
+======================== */
+
+header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:20px 10%;
+    background:white;
+    box-shadow:0 2px 10px rgba(0,0,0,0.1);
+    position:sticky;
+    top:0;
+}
+
+.logo h2{
+    color:#0077b6;
+}
+
+nav ul{
+    list-style:none;
+    display:flex;
+}
+
+nav ul li{
+    margin-left:25px;
+}
+
+nav ul li a{
+    text-decoration:none;
+    color:#333;
+    font-weight:bold;
+    transition:0.3s;
+}
+
+nav ul li a:hover{
+    color:#0077b6;
+}
+
+
+
+/* ========================
+HERO
+======================== */
+
+.hero{
+    height:500px;
+    background:url("https://images.unsplash.com/photo-1586773860418-d37222d8fce3") center/cover no-repeat;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    color:white;
+    padding:20px;
+}
+
+.hero h1{
+    font-size:48px;
+    margin-bottom:20px;
+}
+
+.hero p{
+    font-size:20px;
+    max-width:700px;
+    margin-bottom:25px;
+}
+
+.hero button{
+    padding:15px 30px;
+    border:none;
+    background:#0077b6;
+    color:white;
+    font-size:16px;
+    border-radius:5px;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.hero button:hover{
+    background:#005f8f;
+}
+
+
+
+/* ========================
+SERVICIOS
+======================== */
+
+.servicios{
+    padding:80px 10%;
+    text-align:center;
+}
+
+.servicios h2{
+    margin-bottom:50px;
+    font-size:32px;
+}
+
+.lista-servicios{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:30px;
+}
+
+.servicio{
+    background:white;
+    padding:30px;
+    border-radius:10px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.1);
+    transition:0.3s;
+}
+
+.servicio:hover{
+    transform:translateY(-5px);
+}
+
+.servicio h3{
+    color:#0077b6;
+    margin-bottom:15px;
+}
+
+
+
+/* ========================
+DOCTORES
+======================== */
+
+.doctores{
+    padding:80px 10%;
+    background:white;
+    text-align:center;
+}
+
+.doctores h2{
+    margin-bottom:50px;
+    font-size:32px;
+}
+
+.lista-doctores{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:30px;
+}
+
+.doctor{
+    background:#f5f7fb;
+    padding:20px;
+    border-radius:10px;
+}
+
+.doctor img{
+    width:100%;
+    border-radius:10px;
+    margin-bottom:15px;
+}
+
+.doctor h3{
+    margin-bottom:5px;
+}
+
+
+
+/* ========================
+NOTICIAS
+======================== */
+
+.noticias{
+    padding:80px 10%;
+    text-align:center;
+}
+
+.noticias h2{
+    margin-bottom:50px;
+    font-size:32px;
+}
+
+.lista-noticias{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:30px;
+}
+
+.noticia{
+    background:white;
+    border-radius:10px;
+    overflow:hidden;
+    box-shadow:0 5px 15px rgba(0,0,0,0.1);
+}
+
+.noticia img{
+    width:100%;
+}
+
+.noticia h3{
+    margin:15px;
+    color:#0077b6;
+}
+
+.noticia p{
+    margin:0 15px 20px 15px;
+}
+
+
+
+/* ========================
+CONTACTO
+======================== */
+
+.contacto{
+    background:#0077b6;
+    color:white;
+    text-align:center;
+    padding:60px 20px;
+}
+
+.contacto h2{
+    margin-bottom:20px;
+}
+
+.contacto p{
+    margin:5px 0;
+}
+
+
+
+/* ========================
+FOOTER
+======================== */
+
+footer{
+    background:#023e8a;
+    color:white;
+    text-align:center;
+    padding:20px;
+}
+
+
+
+/* ========================
+RESPONSIVE
+======================== */
+
+@media (max-width:768px){
+
+header{
+    flex-direction:column;
+}
+
+nav ul{
+    flex-direction:column;
+    align-items:center;
+    margin-top:15px;
+}
+
+nav ul li{
+    margin:10px 0;
+}
+
+.hero h1{
+    font-size:36px;
+}
+
+.hero p{
+    font-size:18px;
+}
+
+}
