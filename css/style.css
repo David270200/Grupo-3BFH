@@ -112,16 +112,19 @@ nav ul li a:hover{
 .servicios-visual {
     flex: 1;
     min-width: 300px;
-    background: #f5f7fb; /* O usa el mismo color que el fondo de tu web si tienes uno */
-    display: flex; /* Centra la imagen si sobra espacio */
-    align-items: center;
-    justify-content: center;
-    padding: 20px; /* Un poco de aire alrededor */
+    /* Usamos la imagen como fondo */
+    background-image: url('../img/radio.webp');
+    background-repeat: no-repeat;
+    background-size: cover; /* Sigue llenando el espacio, pero... */
+    background-position: center top; /* ...prioriza mostrar la parte superior (la cara del doctor y la máquina) */
+    
+    /* Aseguramos que tenga altura en responsive */
+    min-height: 400px; 
 }
 
 .servicios-visual img {
     width: 100%; /* Intenta ocupar el ancho */
-    height: 100%; /* Mantiene la proporción original */
+    height: auto; /* Mantiene la proporción original */
     max-height: 80vh; /* Evita que se haga gigante hacia abajo */
     object-fit: contain; /* Muestra la imagen COMPLETA dentro del contenedor */
     display: block;
@@ -630,4 +633,361 @@ estilos para productos.html
 .arrow-circle-white {
     background: white;
     color: #003d5b;
+}
+
+/* ========================
+   BANNER FARMACIA (IMAGEN EN HTML)
+   ======================== */
+.banner-farmacia-html {
+    width: 100%;
+    background-color: #003d5b; /* Azul oscuro sólido para el lado del texto */
+    overflow: hidden; /* Mantiene todo dentro de los bordes */
+}
+
+.contenedor-banner {
+    display: flex;
+    width: 100%;
+    align-items: stretch; /* Hace que ambos lados tengan la misma altura */
+}
+
+/* Lado del Texto (Izquierdo) */
+.contenido-texto {
+    flex: 1; /* Ocupa el 50% del ancho */
+    padding: 60px 8%; /* Espaciado interno generoso */
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centra el texto verticalmente */
+}
+
+.contenido-texto h1 {
+    font-size: 50px;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.contenido-texto p {
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+/* Contenedor de Botones */
+.botones-farmacia {
+    display: flex;
+    gap: 15px; /* Espacio entre botones */
+}
+
+/* Estilo de los Botones (Borde Blanco) */
+.btn-farmacia {
+    text-decoration: none;
+    color: white;
+    border: 2px solid white;
+    padding: 12px 25px;
+    border-radius: 30px;
+    font-size: 14px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    text-align: center;
+}
+
+.btn-farmacia:hover {
+    background-color: white;
+    color: #003d5b; /* Invierte colores al pasar el mouse */
+}
+
+/* Lado de la Imagen (Derecho) */
+.contenido-imagen {
+    flex: 1; /* Ocupa el otro 50% del ancho */
+    background: #003d5b; /* Mismo color de fondo por si la imagen tarda en cargar */
+}
+
+.contenido-imagen img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* ¡CLAVE! Hace que la imagen llene el espacio sin estirarse */
+    display: block; /* Quita espacios extraños debajo de la imagen */
+}
+
+/* ========================
+   RESPONSIVE (Ajustes para Móvil)
+   ======================== */
+@media (max-width: 900px) {
+    .contenedor-banner {
+        flex-direction: column; /* Apila texto arriba e imagen abajo */
+    }
+
+    .contenido-texto {
+        padding: 40px 20px;
+        text-align: center;
+    }
+
+    .botones-farmacia {
+        flex-direction: column; /* Apila botones en móvil */
+        align-items: center;
+    }
+
+    .btn-farmacia {
+        width: 100%;
+        max-width: 300px;
+    }
+
+    .contenido-imagen {
+        height: 300px; /* Altura fija para la imagen en móvil */
+    }
+}
+/* ========================
+ANIMACIONES GLOBALES
+======================== */
+
+/* Fade general */
+@keyframes fadeIn {
+    from{
+        opacity:0;
+        transform: translateY(20px);
+    }
+    to{
+        opacity:1;
+        transform: translateY(0);
+    }
+}
+
+/* Animación suave */
+@keyframes aparecer {
+    from{
+        opacity:0;
+        transform: translateY(40px);
+    }
+    to{
+        opacity:1;
+        transform: translateY(0);
+    }
+}
+
+/* Zoom suave */
+@keyframes zoomIn {
+    from{
+        transform: scale(0.9);
+        opacity:0;
+    }
+    to{
+        transform: scale(1);
+        opacity:1;
+    }
+}
+
+/* Pulse botones */
+@keyframes pulse {
+    0%{
+        transform: scale(1);
+    }
+    50%{
+        transform: scale(1.05);
+    }
+    100%{
+        transform: scale(1);
+    }
+}
+
+/* ========================
+HEADER ANIMATION
+======================== */
+
+header{
+    animation: fadeIn 1s ease;
+}
+
+.logo img{
+    transition: transform 0.4s ease;
+}
+
+.logo img:hover{
+    transform: rotate(-5deg) scale(1.05);
+}
+
+
+/* ========================
+NAV LINKS ANIMATION
+======================== */
+
+nav ul li a{
+    position: relative;
+}
+
+nav ul li a::after{
+    content:"";
+    position:absolute;
+    width:0%;
+    height:2px;
+    background:#0077b6;
+    left:0;
+    bottom:-4px;
+    transition:0.4s;
+}
+
+nav ul li a:hover::after{
+    width:100%;
+}
+
+
+/* ========================
+HERO ANIMATION
+======================== */
+
+.hero-content{
+    animation: aparecer 1.2s ease;
+}
+
+.hero-content h1{
+    animation: fadeIn 1.5s ease;
+}
+
+.hero-content p{
+    animation: fadeIn 2s ease;
+}
+
+.btn-principal{
+    animation: pulse 2.5s infinite;
+}
+
+.btn-principal:hover{
+    transform: scale(1.08);
+}
+
+
+/* ========================
+TARJETAS HERO
+======================== */
+
+.tarjeta-glass{
+    transition: all 0.4s ease;
+}
+
+.tarjeta-glass:hover{
+    transform: translateY(-8px) scale(1.02);
+}
+
+.tarjeta-azul{
+    transition: all 0.4s ease;
+}
+
+.tarjeta-azul:hover{
+    transform: translateY(-8px);
+}
+
+
+/* ========================
+SERVICIOS PREMIUM
+======================== */
+
+.seccion-servicios-premium{
+    animation: aparecer 1s ease;
+}
+
+.card-white{
+    animation: zoomIn 0.8s ease;
+}
+
+.card-white:hover{
+    transform: translateY(-10px) scale(1.03);
+}
+
+
+/* ========================
+DOCTORES
+======================== */
+
+.doctor{
+    animation: fadeIn 1s ease;
+    transition: transform 0.3s ease;
+}
+
+.doctor:hover{
+    transform: translateY(-8px);
+}
+
+.doctor img{
+    transition: transform 0.4s ease;
+}
+
+.doctor:hover img{
+    transform: scale(1.05);
+}
+
+
+/* ========================
+NOTICIAS
+======================== */
+
+.noticia{
+    animation: fadeIn 1s ease;
+    transition: transform 0.3s ease;
+}
+
+.noticia:hover{
+    transform: translateY(-6px);
+}
+
+
+/* ========================
+PRODUCTOS FARMACIA
+======================== */
+
+.producto{
+    animation: zoomIn 0.8s ease;
+}
+
+.producto img{
+    transition: transform 0.4s ease;
+}
+
+.producto:hover img{
+    transform: scale(1.1);
+}
+
+.producto button{
+    animation: pulse 3s infinite;
+}
+
+
+/* ========================
+PROMOCIONES
+======================== */
+
+.promo{
+    overflow:hidden;
+}
+
+.promo img{
+    transition: transform 0.5s ease;
+}
+
+.promo:hover img{
+    transform: scale(1.08);
+}
+
+
+/* ========================
+BANNER FARMACIA
+======================== */
+
+.contenido-texto{
+    animation: aparecer 1s ease;
+}
+
+.btn-farmacia{
+    position: relative;
+}
+
+.btn-farmacia:hover{
+    transform: scale(1.05);
+}
+
+
+/* ========================
+FOOTER
+======================== */
+
+footer{
+    animation: fadeIn 1.2s ease;
 }
