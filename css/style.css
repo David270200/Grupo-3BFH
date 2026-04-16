@@ -284,4 +284,83 @@ nav ul li{
     font-size:18px;
 }
 
+/* ========================
+estilos para productos.html
+======================== */
+}
+
+.productos-farmacia {
+    padding: 40px 20px;
+    text-align: center;
+    background-color: #f8f9fa;
+}
+
+.productos-farmacia h2 {
+    font-size: 32px;
+    margin-bottom: 30px;
+    color: #2c3e50;
+}
+
+.contenedor-productos {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 25px;
+}
+
+.producto {
+    background: white;
+    width: 250px;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.producto:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.18);
+}
+
+.producto img {
+    width: 100%;
+    height: 180px;
+    object-fit: contain;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.producto h3 {
+    font-size: 22px;
+    margin-bottom: 10px;
+    color: #34495e;
+}
+
+.producto p {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 12px;
+}
+
+.precio {
+    display: block;
+    font-size: 20px;
+    font-weight: bold;
+    color: #27ae60;
+    margin-bottom: 15px;
+}
+
+.producto button {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 15px;
+    transition: background-color 0.3s ease;
+}
+
+.producto button:hover {
+    background-color: #2980b9;
 }
