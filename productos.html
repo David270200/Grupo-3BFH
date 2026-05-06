@@ -5,66 +5,259 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Productos de Farmacia</title>
     <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        .barra-busqueda {
+            margin: 20px;
+            text-align: center;
+        }
+
+        .barra-busqueda input {
+            padding: 10px;
+            width: 60%;
+            font-size: 16px;
+        }
+
+        .carrito {
+            position: fixed;
+            top: 10px;
+            right: 20px;
+            background: #28a745;
+            color: white;
+            padding: 10px;
+            border-radius: 10px;
+        }
+
+        .oculto {
+            display: none;
+        }
+        .panel-carrito {
+    position: fixed;
+    top: 60px;
+    right: 20px;
+    width: 300px;
+    background: white;
+    border: 1px solid #ccc;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.2);
+    max-height: 400px;
+    overflow-y: auto;
+    z-index: 1000;
+}
+
+.oculto {
+    display: none;
+}
+
+.item-carrito {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+.producto img {
+    width: 100%;
+    height: 200px;       /* tamaño fijo */
+    object-fit: cover;   /* recorta sin deformar */
+    border-radius: 10px;
+}
+.contenedor-productos {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+    </style>
 </head>
 <body>
 
-<!-- HEADER -->
 <header>
-     <nav class="navbar">
+    <nav class="navbar">
         <a href="index.html">Inicio</a>
         <a href="servicios.html">Servicios</a>
-        <li><a href="Doctores.html">Doctores</a></li>
-            <li><a href="productos.html">Productos</a></li>
-            <li><a href="#">Noticias</a></li>
-            <li><a href="#">Contacto</a></li>
-        
+        <a href="Doctores.html">Doctores</a>
+        <a href="productos.html">Productos</a>
+        <a href="#">Noticias</a>
+        <a href="#">Contacto</a>
     </nav>
-
 </header>
 
+<!-- CARRITO -->
+<div class="carrito" onclick="toggleCarrito()">
+    🛒 Carrito: <span id="contador">0</span>
+    <button onclick="irCheckout()">Ir a pagar</button>
+</div>
+
+<div id="panelCarrito" class="panel-carrito oculto">
+    <h3>🛒 Carrito</h3>
+    <div id="itemsCarrito"></div>
+    <hr>
+    <p><strong>Total: $<span id="totalCarrito">0</span></strong></p>
+    <button onclick="vaciarCarrito()">Vaciar carrito</button>
+</div>
 <section class="productos-farmacia">
     <h2>Productos de Farmacia</h2>
-    <div class="contenedor-productos">
+
+    <!-- BUSCADOR -->
+    <div class="barra-busqueda">
+        <input type="text" id="buscador" placeholder="Buscar producto...">
+    </div>
+
+    <div class="contenedor-productos" id="lista-productos">
 
         <div class="producto">
             <img src="imagenesproductos/paracetamol.jpg" alt="Paracetamol">
             <h3>Paracetamol</h3>
             <p>Alivia el dolor y reduce la fiebre.</p>
             <span class="precio">$5.00</span>
-            <button>Comprar</button>
+        <button onclick="agregarCarrito('Paracetamol', 5.00, 'imagenesproductos/paracetamol.jpg')">Agregar</button>
         </div>
 
         <div class="producto">
-            <img src="imagenesproductos/ibuprofeno.jpg" alt="Ibuprofeno">
+            <img src="imagenesproductos/ibuprofeno.webp" alt="Ibuprofeno">
             <h3>Ibuprofeno</h3>
             <p>Antiinflamatorio y analgésico.</p>
             <span class="precio">$7.50</span>
-            <button>Comprar</button>
+            <button onclick="agregarCarrito('Ibuprofeno', 7.50, 'imagenesproductos/ibuprofeno.webp')">Agregar</button>
         </div>
 
-         <div class="producto">
-            <img src="imagenesproductos/jarabe-tos.jpg" alt="jarabe para la tos">
+        <div class="producto">
+            <img src="imagenesproductos/jarabetos.jpg" alt="Jarabe para la tos">
             <h3>Jarabe para la tos</h3>
-            <p>Alivia los síntomas de la tos y el resfriado.</p>
+            <p>Alivia los síntomas de la tos.</p>
             <span class="precio">$10.00</span>
-            <button>Comprar</button>
+            <button onclick="agregarCarrito('Jarabe para la tos', 10.00, 'imagenesproductos/jarabetos.jpg')">Agregar</button>
         </div>
 
-         <div class="producto">
-            <img src="imagenesproductos/indapamida.jpg" alt="Indapamida">
+        <div class="producto">
+            <img src="imagenesproductos/pastillapresion.webp" alt="Indapamida">
             <h3>Indapamida</h3>
-            <p>Trata la hipertensión y la insuficiencia cardíaca.</p>
+            <p>Trata la hipertensión.</p>
             <span class="precio">$15.00</span>
-            <button>Comprar</button>
+            <button onclick="agregarCarrito('Indapamida', 15.00, 'imagenesproductos/pastillapresion.webp')">Agregar</button>
+        </div>
+        
+        <div class="producto">
+            <img src="imagenesproductos/pastillarespfriado.jpeg" alt="norcetin forte">
+            <h3>Norcetin Forte</h3>
+            <p>Alivia el dolor y reduce la fiebre.</p>
+            <span class="precio">$5.00</span>
+            <button onclick="agregarCarrito('Norcetin Forte', 5.00, 'imagenesproductos/pastillarespfriado.jpeg')">Agregar</button>
         </div>
 
+    <div class="producto">
+        <img src="imagenesproductos/medicamentoestomacal.webp" alt="enterogermina">
+        <h3>Enterogermina</h3>
+        <p>Trata la diarrea y mejora la absorción intestinal.</p>
+        <span class="precio">$10.00</span>
+        <button onclick="agregarCarrito('Enterogermina', 10.00, 'imagenesproductos/medicamentoestomacal.webp')">Agregar</button>
+    </div>
+    
+    <div class="producto">
+        <img src="imagenesproductos/cremapiel.png" alt="Crema para la piel">
+        <h3>Crema para la piel</h3>
+        <p>Hidrata y protege la piel.</p>
+        <span class="precio">$8.00</span>
+        <button onclick="agregarCarrito('Crema para la piel', 8.00, 'imagenesproductos/cremapiel.png')">Agregar</button>
     </div>
 </section>
-<!-- FOOTER -->
-  <center>
-<footer> <hr>
-    2026 | Copyright &copy; | Derechos reservados | Hospital BioFarma
+
+<footer style="text-align:center;">
+    <hr>
+    2026 | Copyright &copy; | Hospital BioFarma
 </footer>
-</center>
+
+<!-- JAVASCRIPT -->
+<script>
+let carrito = JSON.parse(sessionStorage.getItem("carrito")) || [];
+
+// GUARDAR
+function guardarCarrito() {
+    sessionStorage.setItem("carrito", JSON.stringify(carrito));
+}
+
+// CONTADOR
+function actualizarContador() {
+    let total = carrito.reduce((acc, p) => acc + p.cantidad, 0);
+    document.getElementById("contador").textContent = total;
+}
+
+// MOSTRAR CARRITO
+function mostrarCarrito() {
+    let contenedor = document.getElementById("itemsCarrito");
+    let total = 0;
+    contenedor.innerHTML = "";
+
+    carrito.forEach((p, index) => {
+        let subtotal = p.precio * p.cantidad;
+        total += subtotal;
+
+        contenedor.innerHTML += `
+            <div class="item-carrito">
+                <span>${p.nombre} x${p.cantidad}</span>
+                <span>$${subtotal.toFixed(2)}</span>
+                <button onclick="eliminarProducto(${index})">❌</button>
+            </div>
+        `;
+    });
+
+    document.getElementById("totalCarrito").textContent = total.toFixed(2);
+}
+
+// TOGGLE PANEL
+function toggleCarrito() {
+    let panel = document.getElementById("panelCarrito");
+    panel.classList.toggle("oculto");
+    mostrarCarrito();
+}
+
+// AGREGAR PRODUCTO
+function agregarCarrito(nombre, precio, imagen) {
+    let existente = carrito.find(p => p.nombre === nombre);
+
+    if (existente) {
+        existente.cantidad++;
+    } else {
+        carrito.push({ nombre, precio, imagen, cantidad: 1 });
+    }
+
+    guardarCarrito();
+    actualizarContador();
+}
+
+// ELIMINAR PRODUCTO
+function eliminarProducto(index) {
+    carrito.splice(index, 1);
+    guardarCarrito();
+    actualizarContador();
+    mostrarCarrito();
+}
+
+// VACIAR CARRITO
+function vaciarCarrito() {
+    carrito = [];
+    sessionStorage.removeItem("carrito");
+    actualizarContador();
+    mostrarCarrito();
+}
+
+// BUSCADOR
+document.getElementById("buscador").addEventListener("keyup", function() {
+    let filtro = this.value.toLowerCase();
+    let productos = document.querySelectorAll(".producto");
+
+    productos.forEach(p => {
+        let nombre = p.querySelector("h3").textContent.toLowerCase();
+        p.style.display = nombre.includes(filtro) ? "block" : "none";
+    });
+});
+
+function irCheckout() {
+    window.location.href = "checkout.html";
+}
+// INICIO
+actualizarContador();
+</script>
+
 </body>
 </html>
