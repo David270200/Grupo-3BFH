@@ -3,261 +3,223 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Productos de Farmacia</title>
+    <title>Productos | Hospital BioFarma</title>
+    <link rel="shortcut icon" type="image/png" href="img/Logo.png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
-
-    <style>
-        .barra-busqueda {
-            margin: 20px;
-            text-align: center;
-        }
-
-        .barra-busqueda input {
-            padding: 10px;
-            width: 60%;
-            font-size: 16px;
-        }
-
-        .carrito {
-            position: fixed;
-            top: 10px;
-            right: 20px;
-            background: #28a745;
-            color: white;
-            padding: 10px;
-            border-radius: 10px;
-        }
-
-        .oculto {
-            display: none;
-        }
-        .panel-carrito {
-    position: fixed;
-    top: 60px;
-    right: 20px;
-    width: 300px;
-    background: white;
-    border: 1px solid #ccc;
-    padding: 15px;
-    border-radius: 10px;
-    box-shadow: 0px 0px 10px rgba(0,0,0,0.2);
-    max-height: 400px;
-    overflow-y: auto;
-    z-index: 1000;
-}
-
-.oculto {
-    display: none;
-}
-
-.item-carrito {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 10px;
-}
-.producto img {
-    width: 100%;
-    height: 200px;       /* tamaño fijo */
-    object-fit: cover;   /* recorta sin deformar */
-    border-radius: 10px;
-}
-.contenedor-productos {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: center;
-}
-    </style>
 </head>
 <body>
+<nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top">
+    <div class="container">
+        <a class="navbar-brand d-flex align-items-center gap-2" href="index.html">
+            <img src="img/Logo.png" alt="BioFarma" height="52">
+            <span class="brand-name">Bio<span class="brand-accent">Farma</span></span>
+        </a>
+        <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarMain">
+            <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-1">
+                <li class="nav-item"><a class="nav-link fw-semibold" href="index.html"><i class="fas fa-home me-1"></i>Inicio</a></li>
+                <li class="nav-item"><a class="nav-link fw-semibold" href="servicios.html"><i class="fas fa-heartbeat me-1"></i>Servicios</a></li>
+                <li class="nav-item"><a class="nav-link fw-semibold" href="Doctores.html"><i class="fas fa-user-md me-1"></i>Doctores</a></li>
+                <li class="nav-item"><a class="nav-link fw-semibold" href="productos.html"><i class="fas fa-pills me-1"></i>Productos</a></li>
+                <li class="nav-item"><a class="nav-link fw-semibold" href="noticias.html"><i class="fas fa-newspaper me-1"></i>Noticias</a></li>
+                <li class="nav-item ms-lg-2">
+                    <a class="btn btn-biofarma" href="contacto.html"><i class="fas fa-envelope me-1"></i>Contacto</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
 
-<header>
-    <nav class="navbar">
-        <a href="index.html">Inicio</a>
-        <a href="servicios.html">Servicios</a>
-        <a href="Doctores.html">Doctores</a>
-        <a href="productos.html">Productos</a>
-        <a href="#">Noticias</a>
-        <a href="#">Contacto</a>
-    </nav>
-</header>
-
-<!-- CARRITO -->
-<div class="carrito" onclick="toggleCarrito()">
-    🛒 Carrito: <span id="contador">0</span>
-    <button onclick="irCheckout()">Ir a pagar</button>
+<div class="page-banner">
+    <div class="container">
+        <h1><i class="fas fa-pills me-3"></i>Farmacia BioFarma</h1>
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb justify-content-center mb-0">
+                <li class="breadcrumb-item"><a href="index.html" class="text-white">Inicio</a></li>
+                <li class="breadcrumb-item active text-white-50">Productos</li>
+            </ol>
+        </nav>
+    </div>
 </div>
 
-<div id="panelCarrito" class="panel-carrito oculto">
-    <h3>🛒 Carrito</h3>
-    <div id="itemsCarrito"></div>
-    <hr>
-    <p><strong>Total: $<span id="totalCarrito">0</span></strong></p>
-    <button onclick="vaciarCarrito()">Vaciar carrito</button>
-</div>
-<section class="productos-farmacia">
-    <h2>Productos de Farmacia</h2>
-
-    <!-- BUSCADOR -->
-    <div class="barra-busqueda">
-        <input type="text" id="buscador" placeholder="Buscar producto...">
-    </div>
-
-    <div class="contenedor-productos" id="lista-productos">
-
-        <div class="producto">
-            <img src="imagenesproductos/paracetamol.jpg" alt="Paracetamol">
-            <h3>Paracetamol</h3>
-            <p>Alivia el dolor y reduce la fiebre.</p>
-            <span class="precio">$5.00</span>
-        <button onclick="agregarCarrito('Paracetamol', 5.00, 'imagenesproductos/paracetamol.jpg')">Agregar</button>
+<section class="py-5">
+    <div class="container">
+        <div class="section-header text-center mb-5">
+            <span class="section-tag">Farmacia</span>
+            <h2>Catalogo de Productos</h2>
+            <p class="text-muted">Encuentra los medicamentos y productos de salud que necesitas con asesoria farmaceutica profesional.</p>
         </div>
 
-        <div class="producto">
-            <img src="imagenesproductos/ibuprofeno.webp" alt="Ibuprofeno">
-            <h3>Ibuprofeno</h3>
-            <p>Antiinflamatorio y analgésico.</p>
-            <span class="precio">$7.50</span>
-            <button onclick="agregarCarrito('Ibuprofeno', 7.50, 'imagenesproductos/ibuprofeno.webp')">Agregar</button>
+        <!-- Filtros -->
+        <div class="d-flex gap-2 flex-wrap justify-content-center mb-5">
+            <button class="btn btn-filtro active" data-filtro="todos">Todos</button>
+            <button class="btn btn-filtro" data-filtro="analgesico">Analgesicos</button>
+            <button class="btn btn-filtro" data-filtro="antinflamatorio">Antinflamatorios</button>
+            <button class="btn btn-filtro" data-filtro="cardiovascular">Cardiovascular</button>
+            <button class="btn btn-filtro" data-filtro="respiratorio">Respiratorio</button>
         </div>
 
-        <div class="producto">
-            <img src="imagenesproductos/jarabetos.jpg" alt="Jarabe para la tos">
-            <h3>Jarabe para la tos</h3>
-            <p>Alivia los síntomas de la tos.</p>
-            <span class="precio">$10.00</span>
-            <button onclick="agregarCarrito('Jarabe para la tos', 10.00, 'imagenesproductos/jarabetos.jpg')">Agregar</button>
+        <div class="row g-4 justify-content-center" id="contenedorProductos">
+            <div class="col-6 col-md-4 col-lg-3 producto-item" data-cat="analgesico">
+                <div class="producto-card">
+                    <div class="producto-img-wrap"><img src="imagenesproductos/paracetamol.jpg" alt="Paracetamol" class="img-fluid"></div>
+                    <div class="producto-body">
+                        <span class="producto-cat">Analgesico</span>
+                        <h3>Paracetamol</h3>
+                        <p>Alivia el dolor y reduce la fiebre. Formula de rapida absorcion.</p>
+                        <div class="producto-footer">
+                            <span class="precio">$5.00</span>
+                            <button class="btn-agregar" onclick="agregarCarrito(this,'Paracetamol')"><i class="fas fa-cart-plus"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-6 col-md-4 col-lg-3 producto-item" data-cat="antinflamatorio">
+                <div class="producto-card">
+                    <div class="producto-img-wrap"><img src="imagenesproductos/ibuprofeno.webp" alt="Ibuprofeno" class="img-fluid"></div>
+                    <div class="producto-body">
+                        <span class="producto-cat">Antinflamatorio</span>
+                        <h3>Ibuprofeno</h3>
+                        <p>Antinflamatorio y analgesico de amplio espectro.</p>
+                        <div class="producto-footer">
+                            <span class="precio">$7.50</span>
+                            <button class="btn-agregar" onclick="agregarCarrito(this,'Ibuprofeno')"><i class="fas fa-cart-plus"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-6 col-md-4 col-lg-3 producto-item" data-cat="respiratorio">
+                <div class="producto-card">
+                    <div class="producto-img-wrap"><img src="imagenesproductos/jarabetos.jpg" alt="Jarabe para la tos" class="img-fluid"></div>
+                    <div class="producto-body">
+                        <span class="producto-cat">Respiratorio</span>
+                        <h3>Jarabe para la tos</h3>
+                        <p>Alivia los sintomas de la tos y el resfriado.</p>
+                        <div class="producto-footer">
+                            <span class="precio">$10.00</span>
+                            <button class="btn-agregar" onclick="agregarCarrito(this,'Jarabe para la tos')"><i class="fas fa-cart-plus"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-6 col-md-4 col-lg-3 producto-item" data-cat="cardiovascular">
+                <div class="producto-card">
+                    <div class="producto-img-wrap"><img src="imagenesproductos/pastillapresion.webp" alt="Pastilla presion" class="img-fluid"></div>
+                    <div class="producto-body">
+                        <span class="producto-cat">Cardiovascular</span>
+                        <h3>Control de Presion</h3>
+                        <p>Trata la hipertension y ayuda a mantener la presion arterial estable.</p>
+                        <div class="producto-footer">
+                            <span class="precio">$15.00</span>
+                            <button class="btn-agregar" onclick="agregarCarrito(this,'Control de Presion')"><i class="fas fa-cart-plus"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
 
-        <div class="producto">
-            <img src="imagenesproductos/pastillapresion.webp" alt="Indapamida">
-            <h3>Indapamida</h3>
-            <p>Trata la hipertensión.</p>
-            <span class="precio">$15.00</span>
-            <button onclick="agregarCarrito('Indapamida', 15.00, 'imagenesproductos/pastillapresion.webp')">Agregar</button>
-        </div>
-        
-        <div class="producto">
-            <img src="imagenesproductos/pastillarespfriado.jpeg" alt="norcetin forte">
-            <h3>Norcetin Forte</h3>
-            <p>Alivia el dolor y reduce la fiebre.</p>
-            <span class="precio">$5.00</span>
-            <button onclick="agregarCarrito('Norcetin Forte', 5.00, 'imagenesproductos/pastillarespfriado.jpeg')">Agregar</button>
+        <!-- Toast notificacion carrito -->
+        <div class="toast-container position-fixed bottom-0 end-0 p-3">
+            <div id="toastCarrito" class="toast align-items-center text-bg-success border-0" role="alert">
+                <div class="d-flex">
+                    <div class="toast-body"><i class="fas fa-check-circle me-2"></i><span id="toastMsg"></span></div>
+                    <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"></button>
+                </div>
+            </div>
         </div>
 
-    <div class="producto">
-        <img src="imagenesproductos/medicamentoestomacal.webp" alt="enterogermina">
-        <h3>Enterogermina</h3>
-        <p>Trata la diarrea y mejora la absorción intestinal.</p>
-        <span class="precio">$10.00</span>
-        <button onclick="agregarCarrito('Enterogermina', 10.00, 'imagenesproductos/medicamentoestomacal.webp')">Agregar</button>
-    </div>
-    
-    <div class="producto">
-        <img src="imagenesproductos/cremapiel.png" alt="Crema para la piel">
-        <h3>Crema para la piel</h3>
-        <p>Hidrata y protege la piel.</p>
-        <span class="precio">$8.00</span>
-        <button onclick="agregarCarrito('Crema para la piel', 8.00, 'imagenesproductos/cremapiel.png')">Agregar</button>
+        <!-- Aviso farmaceutico -->
+        <div class="farmacia-aviso mt-5">
+            <i class="fas fa-info-circle me-2"></i>
+            <strong>Aviso importante:</strong> Consulte siempre a un profesional de la salud antes de adquirir o consumir cualquier medicamento. Nuestros farmaceuticos estan disponibles para orientarte.
+        </div>
     </div>
 </section>
 
-<footer style="text-align:center;">
-    <hr>
-    2026 | Copyright &copy; | Hospital BioFarma
-</footer>
-
-<!-- JAVASCRIPT -->
-<script>
-let carrito = JSON.parse(sessionStorage.getItem("carrito")) || [];
-
-// GUARDAR
-function guardarCarrito() {
-    sessionStorage.setItem("carrito", JSON.stringify(carrito));
-}
-
-// CONTADOR
-function actualizarContador() {
-    let total = carrito.reduce((acc, p) => acc + p.cantidad, 0);
-    document.getElementById("contador").textContent = total;
-}
-
-// MOSTRAR CARRITO
-function mostrarCarrito() {
-    let contenedor = document.getElementById("itemsCarrito");
-    let total = 0;
-    contenedor.innerHTML = "";
-
-    carrito.forEach((p, index) => {
-        let subtotal = p.precio * p.cantidad;
-        total += subtotal;
-
-        contenedor.innerHTML += `
-            <div class="item-carrito">
-                <span>${p.nombre} x${p.cantidad}</span>
-                <span>$${subtotal.toFixed(2)}</span>
-                <button onclick="eliminarProducto(${index})">❌</button>
+<footer class="footer">
+    <div class="container">
+        <div class="row g-4 py-5">
+            <div class="col-md-4">
+                <div class="d-flex align-items-center gap-2 mb-3">
+                    <img src="img/Logo.png" alt="Logo" height="45">
+                    <span class="footer-brand">Bio<span>Farma</span></span>
+                </div>
+                <p class="footer-desc">Brindando atencion medica de calidad con tecnologia de vanguardia y profesionales comprometidos con tu salud.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-whatsapp"></i></a>
+                </div>
             </div>
-        `;
-    });
+            <div class="col-md-2 col-6">
+                <h6 class="footer-title">Navegacion</h6>
+                <ul class="footer-links">
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="servicios.html">Servicios</a></li>
+                    <li><a href="Doctores.html">Doctores</a></li>
+                    <li><a href="productos.html">Productos</a></li>
+                    <li><a href="noticias.html">Noticias</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                </ul>
+            </div>
+            <div class="col-md-3 col-6">
+                <h6 class="footer-title">Servicios</h6>
+                <ul class="footer-links">
+                    <li><a href="servicios.html">Laboratorio Clinico</a></li>
+                    <li><a href="servicios.html">Radiologia</a></li>
+                    <li><a href="servicios.html">Urgencias 24h</a></li>
+                    <li><a href="servicios.html">Cirugia</a></li>
+                    <li><a href="servicios.html">Farmacia</a></li>
+                </ul>
+            </div>
+            <div class="col-md-3">
+                <h6 class="footer-title">Contacto Rapido</h6>
+                <ul class="footer-contact">
+                    <li><i class="fas fa-phone"></i> 305-6305</li>
+                    <li><i class="fas fa-envelope"></i> Biofarma@hospital.com</li>
+                    <li><i class="fas fa-map-marker-alt"></i> Ciudad de Panama</li>
+                    <li><i class="fas fa-clock"></i> Abierto 24/7</li>
+                </ul>
+            </div>
+        </div>
+        <hr class="footer-hr">
+        <div class="footer-bottom text-center py-3">
+            <p>2026 &copy; Derechos reservados | <strong>Hospital BioFarma</strong> | Desarrollado con &#x2764;&#xFE0F; por Grupo 3</p>
+        </div>
+    </div>
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
-    document.getElementById("totalCarrito").textContent = total.toFixed(2);
-}
-
-// TOGGLE PANEL
-function toggleCarrito() {
-    let panel = document.getElementById("panelCarrito");
-    panel.classList.toggle("oculto");
-    mostrarCarrito();
-}
-
-// AGREGAR PRODUCTO
-function agregarCarrito(nombre, precio, imagen) {
-    let existente = carrito.find(p => p.nombre === nombre);
-
-    if (existente) {
-        existente.cantidad++;
-    } else {
-        carrito.push({ nombre, precio, imagen, cantidad: 1 });
-    }
-
-    guardarCarrito();
-    actualizarContador();
-}
-
-// ELIMINAR PRODUCTO
-function eliminarProducto(index) {
-    carrito.splice(index, 1);
-    guardarCarrito();
-    actualizarContador();
-    mostrarCarrito();
-}
-
-// VACIAR CARRITO
-function vaciarCarrito() {
-    carrito = [];
-    sessionStorage.removeItem("carrito");
-    actualizarContador();
-    mostrarCarrito();
-}
-
-// BUSCADOR
-document.getElementById("buscador").addEventListener("keyup", function() {
-    let filtro = this.value.toLowerCase();
-    let productos = document.querySelectorAll(".producto");
-
-    productos.forEach(p => {
-        let nombre = p.querySelector("h3").textContent.toLowerCase();
-        p.style.display = nombre.includes(filtro) ? "block" : "none";
+<script>
+// Filtros de productos
+document.querySelectorAll(".btn-filtro").forEach(btn => {
+    btn.addEventListener("click", function() {
+        document.querySelectorAll(".btn-filtro").forEach(b => b.classList.remove("active"));
+        this.classList.add("active");
+        const filtro = this.dataset.filtro;
+        document.querySelectorAll(".producto-item").forEach(item => {
+            if (filtro === "todos" || item.dataset.cat === filtro) {
+                item.style.display = "";
+            } else {
+                item.style.display = "none";
+            }
+        });
     });
 });
 
-function irCheckout() {
-    window.location.href = "checkout.html";
+// Toast carrito
+function agregarCarrito(btn, nombre) {
+    document.getElementById("toastMsg").textContent = nombre + " agregado a tu consulta.";
+    const toastEl = document.getElementById("toastCarrito");
+    const toast = new bootstrap.Toast(toastEl, { delay: 3000 });
+    toast.show();
 }
-// INICIO
-actualizarContador();
 </script>
-
 </body>
 </html>
