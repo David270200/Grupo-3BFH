@@ -3,68 +3,223 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Productos de Farmacia</title>
+    <title>Productos | Hospital BioFarma</title>
+    <link rel="shortcut icon" type="image/png" href="img/Logo.png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+<nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top">
+    <div class="container">
+        <a class="navbar-brand d-flex align-items-center gap-2" href="index.html">
+            <img src="img/Logo.png" alt="BioFarma" height="52">
+            <span class="brand-name">Bio<span class="brand-accent">Farma</span></span>
+        </a>
+        <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarMain">
+            <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-1">
+                <li class="nav-item"><a class="nav-link fw-semibold" href="index.html"><i class="fas fa-home me-1"></i>Inicio</a></li>
+                <li class="nav-item"><a class="nav-link fw-semibold" href="servicios.html"><i class="fas fa-heartbeat me-1"></i>Servicios</a></li>
+                <li class="nav-item"><a class="nav-link fw-semibold" href="Doctores.html"><i class="fas fa-user-md me-1"></i>Doctores</a></li>
+                <li class="nav-item"><a class="nav-link fw-semibold" href="productos.html"><i class="fas fa-pills me-1"></i>Productos</a></li>
+                <li class="nav-item"><a class="nav-link fw-semibold" href="noticias.html"><i class="fas fa-newspaper me-1"></i>Noticias</a></li>
+                <li class="nav-item ms-lg-2">
+                    <a class="btn btn-biofarma" href="contacto.html"><i class="fas fa-envelope me-1"></i>Contacto</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
 
-<!-- HEADER -->
-<header>
-     <nav class="navbar">
-        <a href="index.html">Inicio</a>
-        <a href="servicios.html">Servicios</a>
-        <li><a href="Doctores.html">Doctores</a></li>
-            <li><a href="productos.html">Productos</a></li>
-            <li><a href="#">Noticias</a></li>
-            <li><a href="#">Contacto</a></li>
-        
-    </nav>
+<div class="page-banner">
+    <div class="container">
+        <h1><i class="fas fa-pills me-3"></i>Farmacia BioFarma</h1>
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb justify-content-center mb-0">
+                <li class="breadcrumb-item"><a href="index.html" class="text-white">Inicio</a></li>
+                <li class="breadcrumb-item active text-white-50">Productos</li>
+            </ol>
+        </nav>
+    </div>
+</div>
 
-</header>
-
-<section class="productos-farmacia">
-    <h2>Productos de Farmacia</h2>
-    <div class="contenedor-productos">
-
-        <div class="producto">
-            <img src="https://www.farmagranada.com/19625-large_default/paracetamolibuprofeno-500mg200mg-16-comprimidos.jpg" alt="Paracetamol">
-            <h3>Paracetamol</h3>
-            <p>Alivia el dolor y reduce la fiebre.</p>
-            <span class="precio">$5.00</span>
-            <button>Comprar</button>
+<section class="py-5">
+    <div class="container">
+        <div class="section-header text-center mb-5">
+            <span class="section-tag">Farmacia</span>
+            <h2>Catalogo de Productos</h2>
+            <p class="text-muted">Encuentra los medicamentos y productos de salud que necesitas con asesoria farmaceutica profesional.</p>
         </div>
 
-        <div class="producto">
-            <img src="https://calox.com/wp-content/uploads/2022/12/Ibuprofeno-400-mg-20-Tab-Rec.webp" alt="Ibuprofeno">
-            <h3>Ibuprofeno</h3>
-            <p>Antiinflamatorio y analgésico.</p>
-            <span class="precio">$7.50</span>
-            <button>Comprar</button>
+        <!-- Filtros -->
+        <div class="d-flex gap-2 flex-wrap justify-content-center mb-5">
+            <button class="btn btn-filtro active" data-filtro="todos">Todos</button>
+            <button class="btn btn-filtro" data-filtro="analgesico">Analgesicos</button>
+            <button class="btn btn-filtro" data-filtro="antinflamatorio">Antinflamatorios</button>
+            <button class="btn btn-filtro" data-filtro="cardiovascular">Cardiovascular</button>
+            <button class="btn btn-filtro" data-filtro="respiratorio">Respiratorio</button>
         </div>
 
-         <div class="producto">
-            <img src="https://farmaciajimenez.com/storage/products/prospantus-jarabe-100-ml/prospantus-jarabe-320.jpg" alt="jarabe para la tos">
-            <h3>Jarabe para la tos</h3>
-            <p>Alivia los síntomas de la tos y el resfriado.</p>
-            <span class="precio">$10.00</span>
-            <button>Comprar</button>
+        <div class="row g-4 justify-content-center" id="contenedorProductos">
+            <div class="col-6 col-md-4 col-lg-3 producto-item" data-cat="analgesico">
+                <div class="producto-card">
+                    <div class="producto-img-wrap"><img src="imagenesproductos/paracetamol.jpg" alt="Paracetamol" class="img-fluid"></div>
+                    <div class="producto-body">
+                        <span class="producto-cat">Analgesico</span>
+                        <h3>Paracetamol</h3>
+                        <p>Alivia el dolor y reduce la fiebre. Formula de rapida absorcion.</p>
+                        <div class="producto-footer">
+                            <span class="precio">$5.00</span>
+                            <button class="btn-agregar" onclick="agregarCarrito(this,'Paracetamol')"><i class="fas fa-cart-plus"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-6 col-md-4 col-lg-3 producto-item" data-cat="antinflamatorio">
+                <div class="producto-card">
+                    <div class="producto-img-wrap"><img src="imagenesproductos/ibuprofeno.webp" alt="Ibuprofeno" class="img-fluid"></div>
+                    <div class="producto-body">
+                        <span class="producto-cat">Antinflamatorio</span>
+                        <h3>Ibuprofeno</h3>
+                        <p>Antinflamatorio y analgesico de amplio espectro.</p>
+                        <div class="producto-footer">
+                            <span class="precio">$7.50</span>
+                            <button class="btn-agregar" onclick="agregarCarrito(this,'Ibuprofeno')"><i class="fas fa-cart-plus"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-6 col-md-4 col-lg-3 producto-item" data-cat="respiratorio">
+                <div class="producto-card">
+                    <div class="producto-img-wrap"><img src="imagenesproductos/jarabetos.jpg" alt="Jarabe para la tos" class="img-fluid"></div>
+                    <div class="producto-body">
+                        <span class="producto-cat">Respiratorio</span>
+                        <h3>Jarabe para la tos</h3>
+                        <p>Alivia los sintomas de la tos y el resfriado.</p>
+                        <div class="producto-footer">
+                            <span class="precio">$10.00</span>
+                            <button class="btn-agregar" onclick="agregarCarrito(this,'Jarabe para la tos')"><i class="fas fa-cart-plus"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-6 col-md-4 col-lg-3 producto-item" data-cat="cardiovascular">
+                <div class="producto-card">
+                    <div class="producto-img-wrap"><img src="imagenesproductos/pastillapresion.webp" alt="Pastilla presion" class="img-fluid"></div>
+                    <div class="producto-body">
+                        <span class="producto-cat">Cardiovascular</span>
+                        <h3>Control de Presion</h3>
+                        <p>Trata la hipertension y ayuda a mantener la presion arterial estable.</p>
+                        <div class="producto-footer">
+                            <span class="precio">$15.00</span>
+                            <button class="btn-agregar" onclick="agregarCarrito(this,'Control de Presion')"><i class="fas fa-cart-plus"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
 
-         <div class="producto">
-            <img src="https://www.super99.com/media/catalog/product/1/0/10026953_1.png?quality=80&fit=bounds&height=700&width=700&canvas=700:700&format=jpeg" alt="Indapamida">
-            <h3>Indapamida</h3>
-            <p>Trata la hipertensión y la insuficiencia cardíaca.</p>
-            <span class="precio">$15.00</span>
-            <button>Comprar</button>
+        <!-- Toast notificacion carrito -->
+        <div class="toast-container position-fixed bottom-0 end-0 p-3">
+            <div id="toastCarrito" class="toast align-items-center text-bg-success border-0" role="alert">
+                <div class="d-flex">
+                    <div class="toast-body"><i class="fas fa-check-circle me-2"></i><span id="toastMsg"></span></div>
+                    <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"></button>
+                </div>
+            </div>
         </div>
 
+        <!-- Aviso farmaceutico -->
+        <div class="farmacia-aviso mt-5">
+            <i class="fas fa-info-circle me-2"></i>
+            <strong>Aviso importante:</strong> Consulte siempre a un profesional de la salud antes de adquirir o consumir cualquier medicamento. Nuestros farmaceuticos estan disponibles para orientarte.
+        </div>
     </div>
 </section>
-<!-- FOOTER -->
-  <center>
-<footer> <hr>
-    2026 | Copyright &copy; | Derechos reservados | Hospital BioFarma
+
+<footer class="footer">
+    <div class="container">
+        <div class="row g-4 py-5">
+            <div class="col-md-4">
+                <div class="d-flex align-items-center gap-2 mb-3">
+                    <img src="img/Logo.png" alt="Logo" height="45">
+                    <span class="footer-brand">Bio<span>Farma</span></span>
+                </div>
+                <p class="footer-desc">Brindando atencion medica de calidad con tecnologia de vanguardia y profesionales comprometidos con tu salud.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+            <div class="col-md-2 col-6">
+                <h6 class="footer-title">Navegacion</h6>
+                <ul class="footer-links">
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="servicios.html">Servicios</a></li>
+                    <li><a href="Doctores.html">Doctores</a></li>
+                    <li><a href="productos.html">Productos</a></li>
+                    <li><a href="noticias.html">Noticias</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                </ul>
+            </div>
+            <div class="col-md-3 col-6">
+                <h6 class="footer-title">Servicios</h6>
+                <ul class="footer-links">
+                    <li><a href="servicios.html">Laboratorio Clinico</a></li>
+                    <li><a href="servicios.html">Radiologia</a></li>
+                    <li><a href="servicios.html">Urgencias 24h</a></li>
+                    <li><a href="servicios.html">Cirugia</a></li>
+                    <li><a href="servicios.html">Farmacia</a></li>
+                </ul>
+            </div>
+            <div class="col-md-3">
+                <h6 class="footer-title">Contacto Rapido</h6>
+                <ul class="footer-contact">
+                    <li><i class="fas fa-phone"></i> 305-6305</li>
+                    <li><i class="fas fa-envelope"></i> Biofarma@hospital.com</li>
+                    <li><i class="fas fa-map-marker-alt"></i> Ciudad de Panama</li>
+                    <li><i class="fas fa-clock"></i> Abierto 24/7</li>
+                </ul>
+            </div>
+        </div>
+        <hr class="footer-hr">
+        <div class="footer-bottom text-center py-3">
+            <p>2026 &copy; Derechos reservados | <strong>Hospital BioFarma</strong> | Desarrollado con &#x2764;&#xFE0F; por Grupo 3</p>
+        </div>
+    </div>
 </footer>
-</center>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+// Filtros de productos
+document.querySelectorAll(".btn-filtro").forEach(btn => {
+    btn.addEventListener("click", function() {
+        document.querySelectorAll(".btn-filtro").forEach(b => b.classList.remove("active"));
+        this.classList.add("active");
+        const filtro = this.dataset.filtro;
+        document.querySelectorAll(".producto-item").forEach(item => {
+            if (filtro === "todos" || item.dataset.cat === filtro) {
+                item.style.display = "";
+            } else {
+                item.style.display = "none";
+            }
+        });
+    });
+});
+
+// Toast carrito
+function agregarCarrito(btn, nombre) {
+    document.getElementById("toastMsg").textContent = nombre + " agregado a tu consulta.";
+    const toastEl = document.getElementById("toastCarrito");
+    const toast = new bootstrap.Toast(toastEl, { delay: 3000 });
+    toast.show();
+}
+</script>
 </body>
 </html>

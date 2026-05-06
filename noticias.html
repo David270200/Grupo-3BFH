@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Noticias | Hospital BioFarma</title>
+    <link rel="shortcut icon" type="image/png" href="img/Logo.png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top">
+    <div class="container">
+        <a class="navbar-brand d-flex align-items-center gap-2" href="index.html">
+            <img src="img/Logo.png" alt="BioFarma" height="52">
+            <span class="brand-name">Bio<span class="brand-accent">Farma</span></span>
+        </a>
+        <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarMain">
+            <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-1">
+                <li class="nav-item"><a class="nav-link fw-semibold" href="index.html"><i class="fas fa-home me-1"></i>Inicio</a></li>
+                <li class="nav-item"><a class="nav-link fw-semibold" href="servicios.html"><i class="fas fa-heartbeat me-1"></i>Servicios</a></li>
+                <li class="nav-item"><a class="nav-link fw-semibold" href="Doctores.html"><i class="fas fa-user-md me-1"></i>Doctores</a></li>
+                <li class="nav-item"><a class="nav-link fw-semibold" href="productos.html"><i class="fas fa-pills me-1"></i>Productos</a></li>
+                <li class="nav-item"><a class="nav-link fw-semibold" href="noticias.html"><i class="fas fa-newspaper me-1"></i>Noticias</a></li>
+                <li class="nav-item ms-lg-2">
+                    <a class="btn btn-biofarma" href="contacto.html"><i class="fas fa-envelope me-1"></i>Contacto</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- PAGE BANNER -->
+<div class="page-banner">
+    <div class="container">
+        <h1><i class="fas fa-newspaper me-3"></i>Noticias de Salud</h1>
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb justify-content-center mb-0">
+                <li class="breadcrumb-item"><a href="index.html" class="text-white">Inicio</a></li>
+                <li class="breadcrumb-item active text-white-50">Noticias</li>
+            </ol>
+        </nav>
+    </div>
+</div>
+
+<section class="py-5">
+    <div class="container">
+        <div class="row g-4">
+
+            <!-- NOTICIA DESTACADA -->
+            <div class="col-12">
+                <article class="noticia-destacada">
+                    <div class="row g-0 align-items-stretch">
+                        <div class="col-md-6">
+                            <img src="img/noticia1.jpg" alt="Nuevas tecnologias medicas" class="img-fluid h-100 rounded-start-4" style="object-fit:cover">
+                        </div>
+                        <div class="col-md-6 p-5 d-flex flex-column justify-content-center">
+                            <span class="noticia-badge-alt mb-3">Tecnologia Medica</span>
+                            <p class="noticia-fecha-alt"><i class="fas fa-calendar me-2"></i>Mayo 2026 &bull; <i class="fas fa-user ms-2 me-1"></i>Dr. Alberto Saavedra</p>
+                            <h2 class="noticia-titulo-grande">Nuevas tecnologias medicas que revolucionan el diagnostico</h2>
+                            <p class="text-muted">Los avances en inteligencia artificial y equipos de imagen estan transformando la medicina moderna. En BioFarma hemos integrado sistemas de resonancia magnetica de ultima generacion y tomografia computarizada de alta resolucion para ofrecer diagnosticos mas precisos y rapidos.</p>
+                            <p class="text-muted">Nuestros especialistas han sido capacitados en el uso de estas nuevas herramientas, permitiendo detectar enfermedades en etapas tempranas y mejorar significativamente el pronostico de los pacientes.</p>
+                            <a href="#" class="btn btn-biofarma mt-3 align-self-start px-4">Leer articulo completo</a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+
+            <!-- NOTICIA 2 -->
+            <div class="col-md-6">
+                <article class="noticia-card h-100">
+                    <div class="noticia-img">
+                        <img src="img/noticia2.png" alt="Vida saludable">
+                        <span class="noticia-badge">Bienestar</span>
+                    </div>
+                    <div class="noticia-body">
+                        <p class="noticia-fecha"><i class="fas fa-calendar me-1"></i> Abril 2026 &bull; <i class="fas fa-user ms-1 me-1"></i> Dra. Yuleidis Escudero</p>
+                        <h3>10 Consejos para una vida mas saludable</h3>
+                        <p>Aprende habitos simples que pueden transformar tu bienestar: desde la importancia del sueno reparador hasta una alimentacion balanceada y ejercicio regular. Nuestros especialistas comparten recomendaciones basadas en evidencia cientifica.</p>
+                        <div class="noticia-tags">
+                            <span class="tag">Nutricion</span>
+                            <span class="tag">Ejercicio</span>
+                            <span class="tag">Bienestar</span>
+                        </div>
+                        <a href="#" class="noticia-link mt-3 d-inline-block">Leer mas <i class="fas fa-arrow-right ms-1"></i></a>
+                    </div>
+                </article>
+            </div>
+
+            <!-- NOTICIA 3 -->
+            <div class="col-md-6">
+                <article class="noticia-card h-100">
+                    <div class="noticia-img" style="background: linear-gradient(135deg,#0077b6,#023e8a); min-height:200px; display:flex; align-items:center; justify-content:center;">
+                        <i class="fas fa-heart-pulse" style="font-size:80px; color:rgba(255,255,255,0.3);"></i>
+                        <span class="noticia-badge">Cardiologia</span>
+                    </div>
+                    <div class="noticia-body">
+                        <p class="noticia-fecha"><i class="fas fa-calendar me-1"></i> Marzo 2026 &bull; <i class="fas fa-user ms-1 me-1"></i> Dr. David Perez</p>
+                        <h3>Prevencion de enfermedades cardiovasculares</h3>
+                        <p>Las enfermedades del corazon son la principal causa de muerte a nivel mundial. Conoce los factores de riesgo, las señales de alerta y como nuestro Centro de Diagnostico Cardiovascular puede ayudarte a mantener un corazon sano.</p>
+                        <div class="noticia-tags">
+                            <span class="tag">Corazon</span>
+                            <span class="tag">Prevencion</span>
+                            <span class="tag">Cardiologia</span>
+                        </div>
+                        <a href="#" class="noticia-link mt-3 d-inline-block">Leer mas <i class="fas fa-arrow-right ms-1"></i></a>
+                    </div>
+                </article>
+            </div>
+
+            <!-- NOTICIA 4 -->
+            <div class="col-md-4">
+                <article class="noticia-card h-100">
+                    <div class="noticia-img" style="background: linear-gradient(135deg,#2d6a4f,#52b788); min-height:180px; display:flex; align-items:center; justify-content:center;">
+                        <i class="fas fa-seedling" style="font-size:70px; color:rgba(255,255,255,0.3);"></i>
+                        <span class="noticia-badge">Nutricion</span>
+                    </div>
+                    <div class="noticia-body">
+                        <p class="noticia-fecha"><i class="fas fa-calendar me-1"></i> Febrero 2026</p>
+                        <h3>Alimentacion balanceada para toda la familia</h3>
+                        <p>Guia practica de nutricion elaborada por nuestros especialistas para llevar una dieta equilibrada.</p>
+                        <a href="#" class="noticia-link mt-2 d-inline-block">Leer mas <i class="fas fa-arrow-right ms-1"></i></a>
+                    </div>
+                </article>
+            </div>
+
+            <!-- NOTICIA 5 -->
+            <div class="col-md-4">
+                <article class="noticia-card h-100">
+                    <div class="noticia-img" style="background: linear-gradient(135deg,#7b2d8b,#c77dff); min-height:180px; display:flex; align-items:center; justify-content:center;">
+                        <i class="fas fa-brain" style="font-size:70px; color:rgba(255,255,255,0.3);"></i>
+                        <span class="noticia-badge">Neurologia</span>
+                    </div>
+                    <div class="noticia-body">
+                        <p class="noticia-fecha"><i class="fas fa-calendar me-1"></i> Enero 2026</p>
+                        <h3>Salud mental: un pilar fundamental del bienestar</h3>
+                        <p>La Dra. Tiara Rodriguez explica la importancia de cuidar la salud mental y los servicios disponibles.</p>
+                        <a href="#" class="noticia-link mt-2 d-inline-block">Leer mas <i class="fas fa-arrow-right ms-1"></i></a>
+                    </div>
+                </article>
+            </div>
+
+            <!-- NOTICIA 6 -->
+            <div class="col-md-4">
+                <article class="noticia-card h-100">
+                    <div class="noticia-img" style="background: linear-gradient(135deg,#e07b00,#ffd166); min-height:180px; display:flex; align-items:center; justify-content:center;">
+                        <i class="fas fa-child-reaching" style="font-size:70px; color:rgba(255,255,255,0.3);"></i>
+                        <span class="noticia-badge">Pediatria</span>
+                    </div>
+                    <div class="noticia-body">
+                        <p class="noticia-fecha"><i class="fas fa-calendar me-1"></i> Diciembre 2025</p>
+                        <h3>Calendario de vacunacion infantil 2026</h3>
+                        <p>Todo lo que los padres deben saber sobre el esquema de vacunacion y como proteger a sus hijos.</p>
+                        <a href="#" class="noticia-link mt-2 d-inline-block">Leer mas <i class="fas fa-arrow-right ms-1"></i></a>
+                    </div>
+                </article>
+            </div>
+
+        </div>
+
+        <!-- BOLETIN / NEWSLETTER -->
+        <div class="newsletter-box mt-5">
+            <div class="row align-items-center g-3">
+                <div class="col-md-6">
+                    <h3><i class="fas fa-bell me-2"></i>Suscribete a nuestro boletin</h3>
+                    <p class="mb-0 text-muted">Recibe las ultimas noticias de salud directamente en tu correo.</p>
+                </div>
+                <div class="col-md-6">
+                    <form id="formNewsletter" class="d-flex gap-2 flex-wrap" novalidate>
+                        <input type="email" id="emailNews" class="form-control form-control-lg flex-grow-1" placeholder="Tu correo electronico" required>
+                        <button type="submit" class="btn btn-biofarma btn-lg px-4">Suscribirse</button>
+                    </form>
+                    <div id="msgNews" class="mt-2 d-none text-success fw-semibold"><i class="fas fa-check-circle me-1"></i> Suscrito exitosamente!</div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<footer class="footer">
+    <div class="container">
+        <div class="row g-4 py-5">
+            <div class="col-md-4">
+                <div class="d-flex align-items-center gap-2 mb-3">
+                    <img src="img/Logo.png" alt="Logo" height="45">
+                    <span class="footer-brand">Bio<span>Farma</span></span>
+                </div>
+                <p class="footer-desc">Brindando atencion medica de calidad con tecnologia de vanguardia y profesionales comprometidos con tu salud.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+            <div class="col-md-2 col-6">
+                <h6 class="footer-title">Navegacion</h6>
+                <ul class="footer-links">
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="servicios.html">Servicios</a></li>
+                    <li><a href="Doctores.html">Doctores</a></li>
+                    <li><a href="productos.html">Productos</a></li>
+                    <li><a href="noticias.html">Noticias</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                </ul>
+            </div>
+            <div class="col-md-3 col-6">
+                <h6 class="footer-title">Servicios</h6>
+                <ul class="footer-links">
+                    <li><a href="servicios.html">Laboratorio Clinico</a></li>
+                    <li><a href="servicios.html">Radiologia</a></li>
+                    <li><a href="servicios.html">Urgencias 24h</a></li>
+                    <li><a href="servicios.html">Cirugia</a></li>
+                    <li><a href="servicios.html">Farmacia</a></li>
+                </ul>
+            </div>
+            <div class="col-md-3">
+                <h6 class="footer-title">Contacto Rapido</h6>
+                <ul class="footer-contact">
+                    <li><i class="fas fa-phone"></i> 305-6305</li>
+                    <li><i class="fas fa-envelope"></i> Biofarma@hospital.com</li>
+                    <li><i class="fas fa-map-marker-alt"></i> Ciudad de Panama</li>
+                    <li><i class="fas fa-clock"></i> Abierto 24/7</li>
+                </ul>
+            </div>
+        </div>
+        <hr class="footer-hr">
+        <div class="footer-bottom text-center py-3">
+            <p>2026 &copy; Derechos reservados | <strong>Hospital BioFarma</strong> | Desarrollado con &#x2764;&#xFE0F; por Grupo 3</p>
+        </div>
+    </div>
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+document.getElementById("formNewsletter").addEventListener("submit", function(e) {
+    e.preventDefault();
+    const email = document.getElementById("emailNews");
+    const msg = document.getElementById("msgNews");
+    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (regex.test(email.value)) {
+        msg.classList.remove("d-none");
+        email.value = "";
+        setTimeout(() => msg.classList.add("d-none"), 4000);
+    } else {
+        email.classList.add("is-invalid");
+        setTimeout(() => email.classList.remove("is-invalid"), 2000);
+    }
+});
+</script>
+</body>
+</html>

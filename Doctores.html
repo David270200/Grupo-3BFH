@@ -1,117 +1,170 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hospital Vida Salud</title>
+    <title>Doctores | Hospital BioFarma</title>
+    <link rel="shortcut icon" type="image/png" href="img/Logo.png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
 </head>
-<link rel="stylesheet" href="css/style.css">
 <body>
-
-<!-- HEADER -->
-<header>
-
-     <nav class="navbar">
-        <a href="index.html">Inicio</a>
-        <a href="servicios.html">Servicios</a>
-        <li><a href="Doctores.html">Doctores</a></li>
-            <li><a href="productos.html">Productos</a></li>
-            <li><a href="#">Noticias</a></li>
-            <li><a href="#">Contacto</a></li>
-        
-    </nav>
-
-</header>
-<!-- DOCTORES -->
-<section class="doctores">
-
-    <h2>Nuestros Especialistas</h2>
-
-    <div class="lista-doctores">
-
-        <div class="doctor">
-
-            <img src="imagenes/dra. imagen.png" alt="Doctora">
-
-            <h3>Dra. Tiara Rodríguez</h3>
-
-            <p>Neurocirujana</p>
-
+<nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top">
+    <div class="container">
+        <a class="navbar-brand d-flex align-items-center gap-2" href="index.html">
+            <img src="img/Logo.png" alt="BioFarma" height="52">
+            <span class="brand-name">Bio<span class="brand-accent">Farma</span></span>
+        </a>
+        <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarMain">
+            <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-1">
+                <li class="nav-item"><a class="nav-link fw-semibold" href="index.html"><i class="fas fa-home me-1"></i>Inicio</a></li>
+                <li class="nav-item"><a class="nav-link fw-semibold" href="servicios.html"><i class="fas fa-heartbeat me-1"></i>Servicios</a></li>
+                <li class="nav-item"><a class="nav-link fw-semibold" href="Doctores.html"><i class="fas fa-user-md me-1"></i>Doctores</a></li>
+                <li class="nav-item"><a class="nav-link fw-semibold" href="productos.html"><i class="fas fa-pills me-1"></i>Productos</a></li>
+                <li class="nav-item"><a class="nav-link fw-semibold" href="noticias.html"><i class="fas fa-newspaper me-1"></i>Noticias</a></li>
+                <li class="nav-item ms-lg-2">
+                    <a class="btn btn-biofarma" href="contacto.html"><i class="fas fa-envelope me-1"></i>Contacto</a>
+                </li>
+            </ul>
         </div>
-
-
-        <div class="doctor">
-
-            <img src="imagenes/dra2.png" alt="Doctora">
-
-            <h3>Dra. Yuleidis Escudero</h3>
-
-            <p>Pediatra</p>
-
-        </div>
-
-
-        <div class="doctor">
-
-            <img src="imagenes/dr3.png" alt="Doctor">
-
-            <h3>Dr. Alberto Saavedra </h3>
-
-            <p>Cirujano</p>
-
-        </div>
-
-
-         <div class="doctor">
-
-            <img src="imagenes/dr2.png" alt="Doctor">
-
-            <h3>Dr. David Pérez</h3>
-
-            <p>Cardiólogo</p>
-
-        </div>
-        
-        <div class="doctor">
-         
-                <img src="imagenes/dr1.png" alt="Doctor">
-    
-                <h3>Dr. Marvin Rodríguez</h3>
-    
-                <p>Dermatólogo</p>
-
-        </div>
-
-
-
-
-
-
     </div>
+</nav>
 
+<div class="page-banner">
+    <div class="container">
+        <h1><i class="fas fa-user-md me-3"></i>Nuestros Especialistas</h1>
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb justify-content-center mb-0">
+                <li class="breadcrumb-item"><a href="index.html" class="text-white">Inicio</a></li>
+                <li class="breadcrumb-item active text-white-50">Doctores</li>
+            </ol>
+        </nav>
+    </div>
+</div>
+
+<section class="py-5">
+    <div class="container">
+        <div class="section-header text-center mb-5">
+            <span class="section-tag">Equipo medico</span>
+            <h2>Profesionales de Excelencia</h2>
+            <p class="text-muted">Nuestro equipo de especialistas cuenta con años de experiencia y formacion de alto nivel para brindarte la mejor atencion medica.</p>
+        </div>
+
+        <div class="row g-4 justify-content-center">
+            <div class="col-6 col-md-4 col-lg-auto">
+                <div class="doctor-card text-center">
+                    <div class="doctor-img-wrap"><img src="imagenes/dra. imagen.png" alt="Dra. Tiara Rodriguez"></div>
+                    <h3>Dra. Tiara Rodriguez</h3>
+                    <span class="especialidad">Neurocirujana</span>
+                    <p class="doctor-bio">Especialista en cirugia del cerebro y sistema nervioso central con 12 años de experiencia.</p>
+                    <a href="contacto.html" class="btn btn-biofarma-sm mt-2">Agendar cita</a>
+                </div>
+            </div>
+            <div class="col-6 col-md-4 col-lg-auto">
+                <div class="doctor-card text-center">
+                    <div class="doctor-img-wrap"><img src="imagenes/dra2.png" alt="Dra. Yuleidis Escudero"></div>
+                    <h3>Dra. Yuleidis Escudero</h3>
+                    <span class="especialidad">Pediatra</span>
+                    <p class="doctor-bio">Dedicada a la salud integral de ninos y adolescentes con enfoque preventivo y familiar.</p>
+                    <a href="contacto.html" class="btn btn-biofarma-sm mt-2">Agendar cita</a>
+                </div>
+            </div>
+            <div class="col-6 col-md-4 col-lg-auto">
+                <div class="doctor-card text-center">
+                    <div class="doctor-img-wrap"><img src="imagenes/dr3.png" alt="Dr. Alberto Saavedra"></div>
+                    <h3>Dr. Alberto Saavedra</h3>
+                    <span class="especialidad">Cirujano General</span>
+                    <p class="doctor-bio">Experto en procedimientos quirurgicos de alta complejidad con tecnicas minimamente invasivas.</p>
+                    <a href="contacto.html" class="btn btn-biofarma-sm mt-2">Agendar cita</a>
+                </div>
+            </div>
+            <div class="col-6 col-md-4 col-lg-auto">
+                <div class="doctor-card text-center">
+                    <div class="doctor-img-wrap"><img src="imagenes/dr2.png" alt="Dr. David Perez"></div>
+                    <h3>Dr. David Perez</h3>
+                    <span class="especialidad">Cardiologo</span>
+                    <p class="doctor-bio">Especialista en enfermedades del corazon y sistema cardiovascular con enfoque preventivo.</p>
+                    <a href="contacto.html" class="btn btn-biofarma-sm mt-2">Agendar cita</a>
+                </div>
+            </div>
+            <div class="col-6 col-md-4 col-lg-auto">
+                <div class="doctor-card text-center">
+                    <div class="doctor-img-wrap"><img src="imagenes/dr1.png" alt="Dr. Marvin Rodriguez"></div>
+                    <h3>Dr. Marvin Rodriguez</h3>
+                    <span class="especialidad">Dermatologo</span>
+                    <p class="doctor-bio">Especialista en enfermedades de la piel, tratamientos esteticos y dermatologia clinica.</p>
+                    <a href="contacto.html" class="btn btn-biofarma-sm mt-2">Agendar cita</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- CTA agendar -->
+        <div class="cta-box mt-5 text-center">
+            <h3>Agenda tu cita con un especialista</h3>
+            <p class="text-muted mb-4">Nuestro equipo esta listo para atenderte. Contactanos y coordina tu consulta hoy mismo.</p>
+            <a href="contacto.html" class="btn btn-biofarma btn-lg px-5"><i class="fas fa-calendar-check me-2"></i>Agendar Cita Ahora</a>
+        </div>
+    </div>
 </section>
-<!-- CONTACTO -->
-<section class="contacto">
 
-    <h2>Contáctanos</h2>
-
-    <p>Dirección: Ciudad de Panamá</p>
-
-    <p>Teléfono: +507 6000-0000</p>
-
-    <p>Email: info@hospital.com</p>
-
-</section>
-
-
-<!-- FOOTER -->
-  <center>
-<footer> <hr>
-    2026 | Copyright &copy; | Derechos reservados | Hospital BioFarma
+<footer class="footer">
+    <div class="container">
+        <div class="row g-4 py-5">
+            <div class="col-md-4">
+                <div class="d-flex align-items-center gap-2 mb-3">
+                    <img src="img/Logo.png" alt="Logo" height="45">
+                    <span class="footer-brand">Bio<span>Farma</span></span>
+                </div>
+                <p class="footer-desc">Brindando atencion medica de calidad con tecnologia de vanguardia y profesionales comprometidos con tu salud.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+            <div class="col-md-2 col-6">
+                <h6 class="footer-title">Navegacion</h6>
+                <ul class="footer-links">
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="servicios.html">Servicios</a></li>
+                    <li><a href="Doctores.html">Doctores</a></li>
+                    <li><a href="productos.html">Productos</a></li>
+                    <li><a href="noticias.html">Noticias</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                </ul>
+            </div>
+            <div class="col-md-3 col-6">
+                <h6 class="footer-title">Servicios</h6>
+                <ul class="footer-links">
+                    <li><a href="servicios.html">Laboratorio Clinico</a></li>
+                    <li><a href="servicios.html">Radiologia</a></li>
+                    <li><a href="servicios.html">Urgencias 24h</a></li>
+                    <li><a href="servicios.html">Cirugia</a></li>
+                    <li><a href="servicios.html">Farmacia</a></li>
+                </ul>
+            </div>
+            <div class="col-md-3">
+                <h6 class="footer-title">Contacto Rapido</h6>
+                <ul class="footer-contact">
+                    <li><i class="fas fa-phone"></i> 305-6305</li>
+                    <li><i class="fas fa-envelope"></i> Biofarma@hospital.com</li>
+                    <li><i class="fas fa-map-marker-alt"></i> Ciudad de Panama</li>
+                    <li><i class="fas fa-clock"></i> Abierto 24/7</li>
+                </ul>
+            </div>
+        </div>
+        <hr class="footer-hr">
+        <div class="footer-bottom text-center py-3">
+            <p>2026 &copy; Derechos reservados | <strong>Hospital BioFarma</strong> | Desarrollado con &#x2764;&#xFE0F; por Grupo 3</p>
+        </div>
+    </div>
 </footer>
-</center>
-
-
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
