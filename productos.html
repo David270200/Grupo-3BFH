@@ -190,7 +190,7 @@
         </div>
         <hr class="footer-hr">
         <div class="footer-bottom text-center py-3">
-            <p>2026 &copy; Derechos reservados | <strong>Hospital BioFarma</strong> | Desarrollado con &#x2764;&#xFE0F; por Grupo 3</p>
+            <p>2026 &copy; Derechos reservados | <strong>Hospital BioFarma</strong> | Desarrollado por Grupo 3</p>
         </div>
     </div>
 </footer>
@@ -215,7 +215,7 @@ document.querySelectorAll(".btn-filtro").forEach(btn => {
 
 // Toast carrito
 function agregarCarrito(btn, nombre) {
-    document.getElementById("toastMsg").textContent = nombre + " agregado a tu consulta.";
+    document.getElementById("toastMsg").textContent = nombre + " agregado a tu carrito.";
     const toastEl = document.getElementById("toastCarrito");
     const toast = new bootstrap.Toast(toastEl, { delay: 3000 });
     toast.show();
