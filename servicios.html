@@ -2,84 +2,193 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Servicios - Hospital Vida Salud</title>
-
-    <!-- CSS -->
-    <link rel="stylesheet" href="css/servicios.css">
-
-    <!-- Fuente -->
-    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
-
-    <!-- Iconos -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Servicios | Hospital BioFarma</title>
+    <link rel="shortcut icon" type="image/png" href="img/Logo.png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
 </head>
-
 <body>
-
-    <!-- NAVBAR -->
-    <nav class="navbar">
-        <a href="index.html">Inicio</a>
-        <a href="servicios.html">Servicios</a>
-        <li><a href="Doctores.html">Doctores</a></li>
-            <li><a href="productos.html">Productos</a></li>
-            <li><a href="#">Noticias</a></li>
-            <li><a href="#">Contacto</a></li>
-        
-    </nav>
-
-    <!-- BANNER -->
-    <div class="banner">
-        Nuestros Servicios
+<nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top">
+    <div class="container">
+        <a class="navbar-brand d-flex align-items-center gap-2" href="index.html">
+            <img src="img/Logo.png" alt="BioFarma" height="52">
+            <span class="brand-name">Bio<span class="brand-accent">Farma</span></span>
+        </a>
+        <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarMain">
+            <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-1">
+                <li class="nav-item"><a class="nav-link fw-semibold" href="index.html"><i class="fas fa-home me-1"></i>Inicio</a></li>
+                <li class="nav-item"><a class="nav-link fw-semibold" href="servicios.html"><i class="fas fa-heartbeat me-1"></i>Servicios</a></li>
+                <li class="nav-item"><a class="nav-link fw-semibold" href="Doctores.html"><i class="fas fa-user-md me-1"></i>Doctores</a></li>
+                <li class="nav-item"><a class="nav-link fw-semibold" href="productos.html"><i class="fas fa-pills me-1"></i>Productos</a></li>
+                <li class="nav-item"><a class="nav-link fw-semibold" href="noticias.html"><i class="fas fa-newspaper me-1"></i>Noticias</a></li>
+                <li class="nav-item ms-lg-2">
+                    <a class="btn btn-biofarma" href="contacto.html"><i class="fas fa-envelope me-1"></i>Contacto</a>
+                </li>
+            </ul>
+        </div>
     </div>
+</nav>
 
-    <!-- SERVICIOS -->
-    <div class="servicios-container">
-
-        <!-- Columna 1 -->
-        <div class="columna">
-            <h3>Servicios Ambulatorios</h3>
-            <ul>
-                <li><i class="fas fa-flask"></i>Laboratorio Clínico</li>
-                <li><i class="fas fa-x-ray"></i>Radiología e Imágenes</li>
-                <li><i class="fas fa-ambulance"></i>Cuarto de Urgencia</li>
-                <li><i class="fas fa-stethoscope"></i>Centro Endoscópico</li>
-                <li><i class="fas fa-user-md"></i>Cirugía Ambulatoria</li>
-                <li><i class="fas fa-heartbeat"></i>Unidad de Hemodiálisis</li>
-                <li><i class="fas fa-tint"></i>Banco de Sangre</li>
-            </ul>
-        </div>
-
-        <!-- Columna 2 -->
-        <div class="columna">
-            <h3>Servicios Hospitalarios</h3>
-            <ul>
-                <li><i class="fas fa-bed"></i>Habitaciones</li>
-                <li><i class="fas fa-procedures"></i>Cuidados Intensivos</li>
-                <li><i class="fas fa-syringe"></i>Salón de Operaciones</li>
-            </ul>
-        </div>
-
-        <!-- Columna 3 -->
-        <div class="columna">
-            <h3>Servicios Relacionados</h3>
-            <ul>
-                <li><i class="fas fa-user-md"></i>Centro Urológico</li>
-                <li><i class="fas fa-lungs"></i>Instituto de Neumología y Alergias</li>
-                <li><i class="fas fa-heart"></i>Centro de Diagnóstico Cardiovascular</li>
-                <li><i class="fas fa-user-nurse"></i>Asociación de Anestesiólogos</li>
-                <li><i class="fas fa-moon"></i>Clínica del Sueño</li>
-                <li><i class="fas fa-pills"></i>Farmacia</li>
-                <li><i class="fas fa-coffee"></i>Cafetería</li>
-                <li><i class="fas fa-parking"></i>Estacionamiento</li>
-            </ul>
-        </div>
-
+<div class="page-banner">
+    <div class="container">
+        <h1><i class="fas fa-heartbeat me-3"></i>Nuestros Servicios</h1>
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb justify-content-center mb-0">
+                <li class="breadcrumb-item"><a href="index.html" class="text-white">Inicio</a></li>
+                <li class="breadcrumb-item active text-white-50">Servicios</li>
+            </ol>
+        </nav>
     </div>
-<!-- FOOTER -->
-  <center>
-<footer> <hr>
-    2026 | Copyright &copy; | Derechos reservados | Hospital BioFarma
+</div>
+
+<section class="py-5">
+    <div class="container">
+        <div class="section-header text-center mb-5">
+            <span class="section-tag">Atencion integral</span>
+            <h2>Servicios de Salud Completos</h2>
+            <p class="text-muted">Contamos con una amplia gama de servicios medicos para cubrir todas tus necesidades de salud</p>
+        </div>
+
+        <div class="row g-4">
+            <!-- Ambulatorios -->
+            <div class="col-md-4">
+                <div class="servicio-card h-100">
+                    <div class="servicio-icon" style="background:linear-gradient(135deg,#0077b6,#00b4d8)">
+                        <i class="fas fa-ambulance"></i>
+                    </div>
+                    <h3>Servicios Ambulatorios</h3>
+                    <ul class="servicio-list">
+                        <li><i class="fas fa-flask"></i>Laboratorio Clinico</li>
+                        <li><i class="fas fa-x-ray"></i>Radiologia e Imagenes</li>
+                        <li><i class="fas fa-ambulance"></i>Cuarto de Urgencia</li>
+                        <li><i class="fas fa-stethoscope"></i>Centro Endoscopico</li>
+                        <li><i class="fas fa-user-md"></i>Cirugia Ambulatoria</li>
+                        <li><i class="fas fa-heartbeat"></i>Unidad de Hemodialisis</li>
+                        <li><i class="fas fa-tint"></i>Banco de Sangre</li>
+                    </ul>
+                </div>
+            </div>
+            <!-- Hospitalarios -->
+            <div class="col-md-4">
+                <div class="servicio-card h-100 featured-servicio">
+                    <div class="servicio-icon" style="background:linear-gradient(135deg,#023e8a,#0077b6)">
+                        <i class="fas fa-hospital"></i>
+                    </div>
+                    <h3>Servicios Hospitalarios</h3>
+                    <ul class="servicio-list">
+                        <li><i class="fas fa-bed"></i>Habitaciones Privadas</li>
+                        <li><i class="fas fa-procedures"></i>Cuidados Intensivos (UCI)</li>
+                        <li><i class="fas fa-syringe"></i>Salon de Operaciones</li>
+                        <li><i class="fas fa-baby"></i>Maternidad</li>
+                        <li><i class="fas fa-shield-virus"></i>Aislamiento Medico</li>
+                    </ul>
+                    <div class="mt-auto pt-3">
+                        <span class="badge-featured">Disponible 24/7</span>
+                    </div>
+                </div>
+            </div>
+            <!-- Relacionados -->
+            <div class="col-md-4">
+                <div class="servicio-card h-100">
+                    <div class="servicio-icon" style="background:linear-gradient(135deg,#2d6a4f,#52b788)">
+                        <i class="fas fa-plus-circle"></i>
+                    </div>
+                    <h3>Servicios Relacionados</h3>
+                    <ul class="servicio-list">
+                        <li><i class="fas fa-user-md"></i>Centro Urologico</li>
+                        <li><i class="fas fa-lungs"></i>Instituto de Neumologia</li>
+                        <li><i class="fas fa-heart"></i>Centro Cardiovascular</li>
+                        <li><i class="fas fa-user-nurse"></i>Anestesiologia</li>
+                        <li><i class="fas fa-moon"></i>Clinica del Sueno</li>
+                        <li><i class="fas fa-pills"></i>Farmacia BioFarma</li>
+                        <li><i class="fas fa-coffee"></i>Cafeteria</li>
+                        <li><i class="fas fa-parking"></i>Estacionamiento</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Imagen radiologia -->
+        <div class="row mt-5 align-items-center g-4">
+            <div class="col-md-6">
+                <img src="img/radiologia.webp" alt="Radiologia BioFarma" class="img-fluid rounded-4 shadow">
+            </div>
+            <div class="col-md-6">
+                <span class="section-tag">Tecnologia de punta</span>
+                <h3 class="mt-2 mb-3" style="font-family:Playfair Display,serif;font-size:2rem">Radiologia e Imagenes Medicas</h3>
+                <p class="text-muted">Contamos con equipos de diagnostico de ultima generacion incluyendo tomografia, resonancia magnetica y ultrasonido 4D para obtener imagenes precisas que apoyan el diagnostico de nuestros especialistas.</p>
+                <ul class="mt-3 list-unstyled">
+                    <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Tomografia Computarizada</li>
+                    <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Resonancia Magnetica</li>
+                    <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Ultrasonido 4D</li>
+                    <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Rayos X Digital</li>
+                    <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Mamografia</li>
+                </ul>
+                <a href="contacto.html" class="btn btn-biofarma mt-3 px-4">Agendar examen</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer class="footer">
+    <div class="container">
+        <div class="row g-4 py-5">
+            <div class="col-md-4">
+                <div class="d-flex align-items-center gap-2 mb-3">
+                    <img src="img/Logo.png" alt="Logo" height="45">
+                    <span class="footer-brand">Bio<span>Farma</span></span>
+                </div>
+                <p class="footer-desc">Brindando atencion medica de calidad con tecnologia de vanguardia y profesionales comprometidos con tu salud.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+            <div class="col-md-2 col-6">
+                <h6 class="footer-title">Navegacion</h6>
+                <ul class="footer-links">
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="servicios.html">Servicios</a></li>
+                    <li><a href="Doctores.html">Doctores</a></li>
+                    <li><a href="productos.html">Productos</a></li>
+                    <li><a href="noticias.html">Noticias</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                </ul>
+            </div>
+            <div class="col-md-3 col-6">
+                <h6 class="footer-title">Servicios</h6>
+                <ul class="footer-links">
+                    <li><a href="servicios.html">Laboratorio Clinico</a></li>
+                    <li><a href="servicios.html">Radiologia</a></li>
+                    <li><a href="servicios.html">Urgencias 24h</a></li>
+                    <li><a href="servicios.html">Cirugia</a></li>
+                    <li><a href="servicios.html">Farmacia</a></li>
+                </ul>
+            </div>
+            <div class="col-md-3">
+                <h6 class="footer-title">Contacto Rapido</h6>
+                <ul class="footer-contact">
+                    <li><i class="fas fa-phone"></i> 305-6305</li>
+                    <li><i class="fas fa-envelope"></i> Biofarma@hospital.com</li>
+                    <li><i class="fas fa-map-marker-alt"></i> Ciudad de Panama</li>
+                    <li><i class="fas fa-clock"></i> Abierto 24/7</li>
+                </ul>
+            </div>
+        </div>
+        <hr class="footer-hr">
+        <div class="footer-bottom text-center py-3">
+            <p>2026 &copy; Derechos reservados | <strong>Hospital BioFarma</strong> | Desarrollado con &#x2764;&#xFE0F; por Grupo 3</p>
+        </div>
+    </div>
 </footer>
-</center>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

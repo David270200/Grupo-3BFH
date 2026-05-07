@@ -1,525 +1,172 @@
 /* ========================
-RESET
-======================== */
-
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
-
-body{
-    font-family: Arial, Helvetica, sans-serif;
-    background:#f5f7fb;
-    color:#333;
-    line-height:1.6;
-    margin: 0;
-}
-
-
-
-/* ========================
-HEADER / NAVBAR
-======================== */
-
-header{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    padding:20px 10%;
-    background:white;
-    box-shadow:0 2px 10px rgba(0,0,0,0.1);
-    position:sticky;
-    top:0;
-}
-
-/* LOGO */
-
-.logo img{
-    height: 60px;
-}
-
-.logo h2{
-    color:#0077b6;
-}
-
-nav ul{
-    list-style:none;
-    display:flex;
-}
-
-nav ul li{
-    margin-left:25px;
-}
-
-nav ul li a{
-    text-decoration:none;
-    color:#333;
-    font-weight:bold;
-    transition:0.3s;
-}
-
-nav ul li a:hover{
-    color:#0077b6;
-}
-/* NAVBAR */
-.navbar {
-    display: flex;
-    gap: 20px;
-    padding: 15px 30px;
-    background: white;
-    border-bottom: 2px solid #ddd;
-}
-
-.navbar a {
-    text-decoration: none;
-    color: #333;
-    font-weight: bold;
-    transition: all 0.3s ease;
-}
-
-.navbar a:hover {
-    color: #2c5aa0;
-    transform: scale(1.1);
-    background-color: #eaf3ff;
-    padding: 5px 10px;
-    border-radius: 5px;
-}
-
-.navbar a:focus {
-    outline: 2px solid #2c5aa0;
-    background-color: #eaf3ff;
-}
-
-
-/* ========================
-   SECCIÓN SERVICIOS PREMIUM
+   VARIABLES Y RESET
    ======================== */
-.seccion-servicios-premium {
-    width: 100%;
-    background-color: #003d5b; /* Azul profundo */
-    min-height: 100vh;
-    display: flex;
+:root {
+    --azul: #0077b6;
+    --azul-oscuro: #023e8a;
+    --azul-profundo: #003d5b;
+    --azul-claro: #00b4d8;
+    --blanco: #ffffff;
+    --gris-claro: #f5f7fb;
+    --gris: #6c757d;
+    --verde: #27ae60;
+    --font-body: "Nunito", sans-serif;
+    --font-display: "Playfair Display", serif;
+    --shadow: 0 8px 30px rgba(0,0,0,0.1);
+    --radius: 16px;
+    --transition: all 0.3s ease;
 }
 
-.servicios-split-container {
-    display: flex;
-    width: 100%;
-    flex-wrap: wrap; /* Para responsive */
-}
+* { margin:0; padding:0; box-sizing:border-box; }
 
-/* Lado de la Imagen */
-.servicios-visual {
-    flex: 1;
-    min-width: 300px;
-    /* Usamos la imagen como fondo */
-    background-image: url('../img/radio.webp');
-    background-repeat: no-repeat;
-    background-size: cover; /* Sigue llenando el espacio, pero... */
-    background-position: center top; /* ...prioriza mostrar la parte superior (la cara del doctor y la máquina) */
-    
-    /* Aseguramos que tenga altura en responsive */
-    min-height: 400px; 
-}
-
-.servicios-visual img {
-    width: 100%; /* Intenta ocupar el ancho */
-    height: auto; /* Mantiene la proporción original */
-    max-height: 80vh; /* Evita que se haga gigante hacia abajo */
-    object-fit: contain; /* Muestra la imagen COMPLETA dentro del contenedor */
-    display: block;
-}
-
-/* Lado del Contenido */
-.servicios-info-panel {
-    flex: 2;
-    padding: 80px 50px;
-    color: white;
-}
-
-.servicios-header h2 {
-    font-size: 42px;
-    font-weight: 700;
-    margin-bottom: 30px;
-}
-
-.servicios-subhead {
-    display: flex;
-    gap: 60px;
-    margin-bottom: 50px;
-    padding-bottom: 20px;
-}
-
-.subhead-item .label {
-    font-size: 11px;
-    letter-spacing: 1px;
-    opacity: 0.8;
-}
-
-.subhead-item .valor {
-    font-size: 22px;
-    font-weight: bold;
-    margin-top: 5px;
-}
-
-.separator {
-    border-left: 1px solid rgba(255, 255, 255, 0.3);
-    padding-left: 40px;
-}
-
-/* Grid de Cartas */
-.cartas-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 25px;
-}
-
-.card-white {
-    background: white;
-    border-radius: 12px;
-    padding: 40px 25px;
+body {
+    font-family: var(--font-body);
+    background: var(--gris-claro);
     color: #333;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    box-shadow: 0 15px 35px rgba(0,0,0,0.2);
-    transition: transform 0.3s ease;
+    line-height: 1.7;
 }
-
-.card-white:hover {
-    transform: translateY(-10px);
-}
-
-.card-icon {
-    font-size: 45px;
-    margin-bottom: 15px;
-}
-
-.card-white h3 {
-    color: #005677;
-    font-size: 20px;
-    margin-bottom: 15px;
-}
-
-.card-divider {
-    width: 100%;
-    border: 0;
-    border-top: 1px solid #efefef;
-    margin-bottom: 25px;
-}
-
-/* Lista con Checks */
-.card-list {
-    list-style: none;
-    width: 100%;
-    text-align: left;
-    margin-bottom: 30px;
-}
-
-.card-list li {
-    font-size: 14px;
-    margin-bottom: 12px;
-    padding-left: 30px;
-    position: relative;
-    color: #555;
-}
-
-.card-list li::before {
-    content: "✔️"; /* Puedes usar un icono de FontAwesome si prefieres */
-    position: absolute;
-    left: 0;
-    color: #0077b6;
-    font-size: 14px;
-}
-
-/* Botón de la carta */
-.card-btn {
-    margin-top: auto; /* Mantiene el botón siempre abajo */
-    background: #003d5b;
-    color: white;
-    border: none;
-    padding: 12px 35px;
-    border-radius: 25px;
-    font-size: 13px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background 0.3s;
-}
-
-.card-btn:hover {
-    background: #0077b6;
-}
-
-/* Ajustes Responsive */
-@media (max-width: 1200px) {
-    .servicios-visual {
-        display: none; /* Oculta la imagen en tablets/móviles para priorizar las cartas */
-    }
-}
-
-
 
 /* ========================
-DOCTORES
-======================== */
-
-.doctores{
-    padding:80px 10%;
-    background:white;
-    text-align:center;
+   NAVBAR
+   ======================== */
+.navbar {
+    padding: 10px 0;
+    z-index: 1000;
 }
 
-.doctores h2{
-    margin-bottom:50px;
-    font-size:32px;
+.brand-name {
+    font-family: var(--font-display);
+    font-size: 1.6rem;
+    color: var(--azul-profundo);
+    font-weight: 700;
 }
 
-.lista-doctores{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-    gap:30px;
+.brand-accent {
+    color: var(--azul);
 }
 
-.doctor{
-    background:#f5f7fb;
-    padding:20px;
-    border-radius:10px;
-}
-
-.doctor img{
-    width:100%;
-    border-radius:10px;
-    margin-bottom:15px;
-}
-
-.doctor h3{
-    margin-bottom:5px;
-}
-
-
-
-/* ========================
-NOTICIAS
-======================== */
-
-.noticias{
-    padding:80px 10%;
-    text-align:center;
-}
-
-.noticias h2{
-    margin-bottom:50px;
-    font-size:32px;
-}
-
-.lista-noticias{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-    gap:30px;
-}
-
-.noticia{
-    background:white;
-    border-radius:10px;
-    overflow:hidden;
-    box-shadow:0 5px 15px rgba(0,0,0,0.1);
-}
-
-.noticia img{
-    width:100%;
-}
-
-.noticia h3{
-    margin:15px;
-    color:#0077b6;
-}
-
-.noticia p{
-    margin:0 15px 20px 15px;
-}
-
-
-
-/* ========================
-CONTACTO
-======================== */
-
-.contacto{
-    background:#0077b6;
-    color:white;
-    text-align:center;
-    padding:60px 20px;
-}
-
-.contacto h2{
-    margin-bottom:20px;
-}
-
-.contacto p{
-    margin:5px 0;
-}
-
-
-
-/* ========================
-FOOTER
-======================== */
-
-footer{
-    background:#023e8a;
-    color:white;
-    text-align:center;
-    padding:20px;
-}
-
-
-
-/* ========================
-RESPONSIVE
-======================== */
-
-@media (max-width:768px){
-
-header{
-    flex-direction:column;
-}
-
-nav ul{
-    flex-direction:column;
-    align-items:center;
-    margin-top:15px;
-}
-
-nav ul li{
-    margin:10px 0;
-}
-
-.hero h1{
-    font-size:36px;
-}
-
-.hero p{
-    font-size:18px;
-}
-
-
-/* ========================
-estilos para productos.html
-======================== */
-}
-
-.productos-farmacia {
-    padding: 40px 20px;
-    text-align: center;
-    background-color: #f8f9fa;
-}
-
-.productos-farmacia h2 {
-    font-size: 32px;
-    margin-bottom: 30px;
-    color: #2c3e50;
-}
-
-.contenedor-productos {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 25px;
-}
-
-.producto {
-    background: white;
-    width: 250px;
-    padding: 20px;
-    border-radius: 15px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.producto:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.18);
-}
-
-.producto img {
-    width: 100%;
-    height: 180px;
-    object-fit: contain;
-    border-radius: 10px;
-    margin-bottom: 15px;
-}
-
-.producto h3 {
-    font-size: 22px;
-    margin-bottom: 10px;
-    color: #34495e;
-}
-
-.producto p {
-    font-size: 14px;
-    color: #666;
-    margin-bottom: 12px;
-}
-
-.precio {
-    display: block;
-    font-size: 20px;
-    font-weight: bold;
-    color: #27ae60;
-    margin-bottom: 15px;
-}
-
-.producto button {
-    background-color: #3498db;
-    color: white;
-    border: none;
-    padding: 10px 18px;
+.navbar .nav-link {
+    color: #444 !important;
+    font-weight: 600;
+    padding: 8px 12px !important;
     border-radius: 8px;
-    cursor: pointer;
-    font-size: 15px;
-    transition: background-color 0.3s ease;
+    transition: var(--transition);
+    font-size: 0.92rem;
 }
 
-.producto button:hover {
-    background-color: #2980b9;
+.navbar .nav-link:hover,
+.navbar .nav-link.active {
+    color: var(--azul) !important;
+    background: rgba(0,119,182,0.08);
 }
 
-/* PROMOCIONES */
-
-.promociones{
-    padding: 60px 5%;
-    text-align: center;
+.btn-biofarma {
+    background: var(--azul);
+    color: white !important;
+    border: none;
+    border-radius: 25px;
+    padding: 8px 22px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    transition: var(--transition);
+    text-decoration: none;
+    display: inline-block;
 }
 
-.promociones h2{
-    margin-bottom: 40px;
-    font-size: 32px;
+.btn-biofarma:hover {
+    background: var(--azul-oscuro);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0,119,182,0.35);
+    color: white !important;
 }
 
-.contenedor-promos{
-    display: flex;
-    justify-content: center;
-    gap: 25px;
+.btn-biofarma-sm {
+    background: var(--azul);
+    color: white !important;
+    border: none;
+    border-radius: 20px;
+    padding: 6px 16px;
+    font-weight: 600;
+    font-size: 0.82rem;
+    transition: var(--transition);
+    text-decoration: none;
+    display: inline-block;
 }
 
-.promo{
-    flex: 1;
-}
-
-.promo img{
-    width: 100%;
-    height: auto;
-    border-radius: 10px;
+.btn-biofarma-sm:hover {
+    background: var(--azul-oscuro);
+    color: white !important;
 }
 
 /* ========================
-   HERO & TARJETAS (NUEVO)
+   PAGE BANNER (para páginas internas)
+   ======================== */
+.page-banner {
+    background: linear-gradient(135deg, var(--azul-profundo) 0%, var(--azul) 100%);
+    color: white;
+    text-align: center;
+    padding: 70px 20px 50px;
+}
+
+.page-banner h1 {
+    font-family: var(--font-display);
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+}
+
+.breadcrumb-item + .breadcrumb-item::before {
+    color: rgba(255,255,255,0.5);
+}
+
+/* ========================
+   SECTION HEADERS
+   ======================== */
+.section-header h2 {
+    font-family: var(--font-display);
+    font-size: 2.2rem;
+    color: var(--azul-profundo);
+    margin-bottom: 10px;
+}
+
+.section-tag {
+    display: inline-block;
+    background: rgba(0,119,182,0.1);
+    color: var(--azul);
+    border-radius: 20px;
+    padding: 4px 16px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+.section-tag-white {
+    display: inline-block;
+    background: rgba(255,255,255,0.15);
+    color: rgba(255,255,255,0.9);
+    border-radius: 20px;
+    padding: 4px 16px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+}
+
+.section-title-left {
+    font-family: var(--font-display);
+    font-size: 1.9rem;
+    color: var(--azul-profundo);
+}
+
+/* ========================
+   HERO
    ======================== */
 .hero {
     position: relative;
-    height: 85vh; /* Ocupa casi toda la pantalla */
-    background: url('https://images.unsplash.com/photo-1586773860418-d37222d8fce3') center/cover no-repeat;
+    height: 88vh;
+    background: url("https://images.unsplash.com/photo-1586773860418-d37222d8fce3") center/cover no-repeat;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -530,464 +177,777 @@ estilos para productos.html
     display: flex;
     align-items: center;
     justify-content: center;
-    background: rgba(0, 0, 0, 0.2); /* Oscurece un poco la imagen para que se lea el texto */
-    text-align: center;
+    background: linear-gradient(to bottom, rgba(0,30,60,0.55), rgba(0,30,60,0.35));
+    padding: 20px;
+}
+
+.hero-badge {
+    display: inline-block;
+    background: rgba(255,255,255,0.15);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.25);
     color: white;
-    padding: 0 20px;
+    border-radius: 30px;
+    padding: 6px 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 20px;
 }
 
 .hero-content h1 {
-    font-size: 42px;
-    margin-bottom: 15px;
-    text-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+    font-family: var(--font-display);
+    font-size: clamp(2.2rem, 5vw, 4rem);
+    line-height: 1.15;
+    margin-bottom: 18px;
+    text-shadow: 2px 2px 15px rgba(0,0,0,0.3);
+}
+
+.hero-highlight {
+    color: #90e0ef;
 }
 
 .hero-content p {
-    font-size: 18px;
+    font-size: 1.15rem;
     max-width: 600px;
-    margin: 0 auto 30px;
+    margin: 0 auto 28px;
+    opacity: 0.9;
 }
 
-.btn-principal {
-    padding: 12px 30px;
-    background: #0077b6;
-    color: white;
-    border: none;
-    border-radius: 25px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: 0.3s;
-}
+.hero-content { animation: aparecer 1.1s ease; }
 
-/* CONTENEDOR DE TARJETAS FLOTANTES */
+/* Tarjetas flotantes */
 .tarjetas-flotantes {
     display: flex;
     width: 100%;
-    height: 160px;
+    height: 155px;
 }
 
-/* TARJETA GLASS (Transparente) */
 .tarjeta-glass {
     flex: 1;
-    background: rgba(255, 255, 255, 0.15); /* Transparencia */
-    backdrop-filter: blur(15px); /* Efecto vidrio */
+    background: rgba(255,255,255,0.13);
+    backdrop-filter: blur(15px);
     -webkit-backdrop-filter: blur(15px);
-    border-right: 1px solid rgba(255, 255, 255, 0.2);
+    border-right: 1px solid rgba(255,255,255,0.2);
     display: flex;
     align-items: center;
     padding: 0 5%;
     color: white;
     position: relative;
     cursor: pointer;
-    transition: background 0.3s;
+    transition: var(--transition);
+    text-decoration: none !important;
 }
 
 .tarjeta-glass:hover {
-    background: rgba(255, 255, 255, 0.25);
+    background: rgba(255,255,255,0.22);
+    transform: translateY(-5px);
+    color: white;
 }
 
-/* TARJETA AZUL */
+.tarjeta-glass h3 {
+    font-size: 1.1rem;
+    max-width: 150px;
+    color: white;
+}
+
 .tarjeta-azul {
-    flex: 1.2;
-    background: #003d5b; /* Azul oscuro intenso */
+    flex: 1.3;
+    background: var(--azul-profundo);
     color: white;
     display: flex;
     align-items: center;
     padding: 0 5%;
     position: relative;
+    transition: var(--transition);
 }
 
-/* ICONOS Y TEXTO INTERNO */
+.tarjeta-azul:hover { transform: translateY(-5px); }
+
 .icon { font-size: 35px; margin-right: 15px; }
 
-.tarjeta-glass h3 { font-size: 1.2rem; max-width: 150px; }
+.info-emergencia h3 { font-size: 1rem; margin-bottom: 6px; }
 
-.contacto-directo {
-    display: flex;
-    flex-direction: column;
-    margin-top: 5px;
-}
+.contacto-directo { display: flex; flex-direction: column; }
+.label { font-size: 10px; letter-spacing: 1px; opacity: 0.75; text-transform: uppercase; }
+.numero { font-size: 26px; font-weight: 800; }
 
-.label { font-size: 11px; letter-spacing: 1px; opacity: 0.8; }
-
-.numero { font-size: 28px; font-weight: bold; }
-
-/* LAS FLECHAS CIRCULARES */
 .arrow-circle, .arrow-circle-white {
     position: absolute;
-    right: 25px;
-    width: 35px;
-    height: 35px;
+    right: 22px;
+    width: 34px;
+    height: 34px;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     font-weight: bold;
+    font-size: 1rem;
+}
+.arrow-circle { background: rgba(255,255,255,0.2); border: 1px solid rgba(255,255,255,0.4); color: white; }
+.arrow-circle-white { background: white; color: var(--azul-profundo); }
+
+/* ========================
+   ESTADÍSTICAS
+   ======================== */
+.stat-card {
+    padding: 30px 20px;
+    border-radius: var(--radius);
+    transition: var(--transition);
 }
 
-.arrow-circle {
-    background: rgba(255, 255, 255, 0.2);
-    border: 1px solid rgba(255, 255, 255, 0.4);
+.stat-card:hover { transform: translateY(-5px); }
+
+.stat-icon {
+    width: 60px; height: 60px;
+    background: linear-gradient(135deg, var(--azul), var(--azul-claro));
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 15px;
+    color: white; font-size: 1.4rem;
 }
 
-.arrow-circle-white {
-    background: white;
-    color: #003d5b;
+.stat-num {
+    font-family: var(--font-display);
+    font-size: 2.5rem;
+    color: var(--azul-oscuro);
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+.stat-card p {
+    color: var(--gris);
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
 /* ========================
-   BANNER FARMACIA (IMAGEN EN HTML)
+   PROMOCIONES
+   ======================== */
+.promociones { background: var(--gris-claro); }
+
+.promo-card {
+    border-radius: var(--radius);
+    overflow: hidden;
+    position: relative;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+}
+
+.promo-card:hover { transform: translateY(-8px); box-shadow: 0 20px 40px rgba(0,0,0,0.15); }
+
+.promo-card img { width: 100%; height: 250px; object-fit: cover; display: block; transition: var(--transition); }
+
+.promo-card:hover img { transform: scale(1.05); }
+
+.promo-overlay {
+    position: absolute; inset: 0;
+    background: rgba(0,61,91,0.6);
+    display: flex; align-items: center; justify-content: center;
+    opacity: 0; transition: var(--transition);
+}
+
+.promo-card:hover .promo-overlay { opacity: 1; }
+
+.promo-overlay span {
+    color: white; font-weight: 700; font-size: 1.1rem;
+    border: 2px solid white; padding: 8px 22px; border-radius: 25px;
+}
+
+/* ========================
+   VIDEO
+   ======================== */
+.video-wrapper {
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+}
+
+.video-wrapper video { display: block; }
+
+/* ========================
+   SERVICIOS PREMIUM
+   ======================== */
+.seccion-servicios-premium {
+    background: var(--azul-profundo);
+    min-height: 90vh;
+    display: flex;
+}
+
+.servicios-split-container { display: flex; width: 100%; flex-wrap: wrap; }
+
+.servicios-visual {
+    flex: 1; min-width: 300px; min-height: 400px;
+    background: url("img/radio.webp") center top / cover no-repeat;
+}
+
+.servicios-info-panel {
+    flex: 2;
+    padding: 70px 50px;
+    color: white;
+}
+
+.servicios-header h2 {
+    font-family: var(--font-display);
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin: 10px 0 25px;
+}
+
+.servicios-subhead {
+    display: flex;
+    gap: 50px;
+    margin-bottom: 45px;
+    padding-bottom: 25px;
+    border-bottom: 1px solid rgba(255,255,255,0.15);
+}
+
+.subhead-item .label { font-size: 10px; letter-spacing: 1px; opacity: 0.75; text-transform: uppercase; }
+.subhead-item .valor { font-size: 1.2rem; font-weight: 700; margin-top: 5px; }
+.separator { border-left: 1px solid rgba(255,255,255,0.25); padding-left: 40px; }
+
+.cartas-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+    gap: 22px;
+}
+
+.card-white {
+    background: white;
+    border-radius: 14px;
+    padding: 35px 22px;
+    color: #333;
+    text-align: center;
+    display: flex; flex-direction: column; align-items: center;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+    transition: var(--transition);
+}
+
+.card-white:hover { transform: translateY(-10px) scale(1.02); }
+
+.card-icon { font-size: 42px; margin-bottom: 14px; }
+
+.card-white h3 { color: var(--azul-profundo); font-size: 1.1rem; margin-bottom: 14px; font-weight: 700; }
+
+.card-divider { width: 100%; border: 0; border-top: 1px solid #f0f0f0; margin-bottom: 20px; }
+
+.card-list { list-style: none; width: 100%; text-align: left; margin-bottom: 25px; }
+
+.card-list li {
+    font-size: 0.88rem; margin-bottom: 10px; padding-left: 28px;
+    position: relative; color: #555;
+}
+
+.card-list li::before {
+    content: "✔";
+    position: absolute; left: 0;
+    color: var(--azul); font-size: 12px;
+}
+
+.card-btn {
+    margin-top: auto;
+    background: var(--azul-profundo);
+    color: white;
+    border: none;
+    padding: 10px 28px;
+    border-radius: 22px;
+    font-size: 0.82rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: var(--transition);
+    text-decoration: none; display: inline-block;
+}
+.card-btn:hover { background: var(--azul); color: white; }
+
+@media (max-width: 1100px) { .servicios-visual { display: none; } }
+
+/* ========================
+   BANNER FARMACIA
    ======================== */
 .banner-farmacia-html {
-    width: 100%;
-    background-color: #003d5b; /* Azul oscuro sólido para el lado del texto */
-    overflow: hidden; /* Mantiene todo dentro de los bordes */
+    background: var(--azul-profundo);
+    overflow: hidden;
 }
 
-.contenedor-banner {
-    display: flex;
-    width: 100%;
-    align-items: stretch; /* Hace que ambos lados tengan la misma altura */
-}
+.contenedor-banner { display: flex; width: 100%; align-items: stretch; }
 
-/* Lado del Texto (Izquierdo) */
 .contenido-texto {
-    flex: 1; /* Ocupa el 50% del ancho */
-    padding: 60px 8%; /* Espaciado interno generoso */
-    color: white;
-    display: flex;
-    flex-direction: column;
-    justify-content: center; /* Centra el texto verticalmente */
+    flex: 1; padding: 70px 8%;
+    color: white; display: flex;
+    flex-direction: column; justify-content: center;
 }
 
 .contenido-texto h1 {
-    font-size: 50px;
-    font-weight: 700;
-    margin-bottom: 20px;
+    font-family: var(--font-display);
+    font-size: 3.5rem; font-weight: 700; margin: 10px 0 20px;
 }
 
-.contenido-texto p {
-    font-size: 18px;
-    line-height: 1.6;
-    margin-bottom: 30px;
-}
+.contenido-texto p { font-size: 1.05rem; margin-bottom: 30px; opacity: 0.9; }
 
-/* Contenedor de Botones */
-.botones-farmacia {
-    display: flex;
-    gap: 15px; /* Espacio entre botones */
-}
+.botones-farmacia { display: flex; gap: 15px; flex-wrap: wrap; }
 
-/* Estilo de los Botones (Borde Blanco) */
 .btn-farmacia {
-    text-decoration: none;
-    color: white;
-    border: 2px solid white;
-    padding: 12px 25px;
-    border-radius: 30px;
-    font-size: 14px;
-    font-weight: 600;
-    transition: all 0.3s ease;
-    text-align: center;
+    text-decoration: none; color: white;
+    border: 2px solid rgba(255,255,255,0.7);
+    padding: 12px 24px; border-radius: 28px;
+    font-size: 0.85rem; font-weight: 700;
+    transition: var(--transition); text-align: center;
 }
 
 .btn-farmacia:hover {
-    background-color: white;
-    color: #003d5b; /* Invierte colores al pasar el mouse */
+    background: white; color: var(--azul-profundo);
+    border-color: white; transform: translateY(-2px);
 }
 
-/* Lado de la Imagen (Derecho) */
-.contenido-imagen {
-    flex: 1; /* Ocupa el otro 50% del ancho */
-    background: #003d5b; /* Mismo color de fondo por si la imagen tarda en cargar */
-}
+.contenido-imagen { flex: 1; }
+.contenido-imagen img { width: 100%; height: 100%; object-fit: cover; display: block; }
 
-.contenido-imagen img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* ¡CLAVE! Hace que la imagen llene el espacio sin estirarse */
-    display: block; /* Quita espacios extraños debajo de la imagen */
-}
-
-/* ========================
-   RESPONSIVE (Ajustes para Móvil)
-   ======================== */
 @media (max-width: 900px) {
-    .contenedor-banner {
-        flex-direction: column; /* Apila texto arriba e imagen abajo */
-    }
-
-    .contenido-texto {
-        padding: 40px 20px;
-        text-align: center;
-    }
-
-    .botones-farmacia {
-        flex-direction: column; /* Apila botones en móvil */
-        align-items: center;
-    }
-
-    .btn-farmacia {
-        width: 100%;
-        max-width: 300px;
-    }
-
-    .contenido-imagen {
-        height: 300px; /* Altura fija para la imagen en móvil */
-    }
+    .contenedor-banner { flex-direction: column; }
+    .contenido-texto { padding: 40px 25px; text-align: center; }
+    .botones-farmacia { justify-content: center; }
+    .contenido-imagen { height: 280px; }
 }
+
 /* ========================
-ANIMACIONES GLOBALES
-======================== */
-
-/* Fade general */
-@keyframes fadeIn {
-    from{
-        opacity:0;
-        transform: translateY(20px);
-    }
-    to{
-        opacity:1;
-        transform: translateY(0);
-    }
+   DOCTORES
+   ======================== */
+.doctor-card {
+    background: white;
+    border-radius: var(--radius);
+    padding: 28px 20px;
+    width: 210px;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
 }
 
-/* Animación suave */
+.doctor-card:hover { transform: translateY(-8px); box-shadow: 0 20px 40px rgba(0,0,0,0.13); }
+
+.doctor-img-wrap {
+    width: 130px; height: 130px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: 0 auto 16px;
+    border: 4px solid var(--azul);
+}
+
+.doctor-img-wrap img { width: 100%; height: 100%; object-fit: cover; transition: var(--transition); }
+
+.doctor-card:hover .doctor-img-wrap img { transform: scale(1.08); }
+
+.doctor-card h3 { font-size: 0.95rem; font-weight: 700; color: var(--azul-profundo); margin-bottom: 5px; }
+
+.especialidad {
+    display: inline-block;
+    background: rgba(0,119,182,0.1);
+    color: var(--azul);
+    border-radius: 12px;
+    padding: 3px 12px;
+    font-size: 0.78rem;
+    font-weight: 700;
+}
+
+.doctor-bio {
+    font-size: 0.8rem;
+    color: var(--gris);
+    margin-top: 10px;
+    line-height: 1.5;
+}
+
+/* ========================
+   NOTICIAS
+   ======================== */
+.noticia-card {
+    background: white;
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    display: flex; flex-direction: column;
+    transition: var(--transition);
+}
+
+.noticia-card:hover { transform: translateY(-6px); box-shadow: 0 20px 40px rgba(0,0,0,0.13); }
+
+.noticia-img { position: relative; overflow: hidden; }
+.noticia-img img { width: 100%; height: 220px; object-fit: cover; display: block; transition: var(--transition); }
+.noticia-card:hover .noticia-img img { transform: scale(1.05); }
+
+.noticia-badge {
+    position: absolute; top: 14px; left: 14px;
+    background: var(--azul); color: white;
+    border-radius: 12px; padding: 3px 12px;
+    font-size: 0.75rem; font-weight: 700;
+}
+
+.noticia-body { padding: 22px; flex: 1; display: flex; flex-direction: column; }
+
+.noticia-fecha { font-size: 0.78rem; color: var(--gris); margin-bottom: 8px; }
+
+.noticia-body h3 {
+    font-family: var(--font-display);
+    font-size: 1.2rem; color: var(--azul-profundo);
+    margin-bottom: 10px;
+}
+
+.noticia-body p { font-size: 0.9rem; color: #555; line-height: 1.6; flex: 1; }
+
+.noticia-link {
+    color: var(--azul); font-weight: 700;
+    text-decoration: none; font-size: 0.88rem;
+    margin-top: 15px; display: inline-block;
+    transition: var(--transition);
+}
+
+.noticia-link:hover { color: var(--azul-oscuro); letter-spacing: 0.5px; }
+
+.noticia-tags { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 12px; }
+
+.tag {
+    background: var(--gris-claro);
+    color: #555;
+    border-radius: 10px; padding: 2px 10px;
+    font-size: 0.75rem; font-weight: 600;
+}
+
+/* Noticia destacada */
+.noticia-destacada {
+    background: white;
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+}
+
+.noticia-badge-alt {
+    display: inline-block;
+    background: linear-gradient(135deg, var(--azul), var(--azul-claro));
+    color: white; border-radius: 12px;
+    padding: 4px 14px; font-size: 0.78rem; font-weight: 700;
+}
+
+.noticia-fecha-alt { font-size: 0.82rem; color: var(--gris); }
+
+.noticia-titulo-grande {
+    font-family: var(--font-display);
+    font-size: 1.7rem; color: var(--azul-profundo);
+    margin: 10px 0 15px;
+}
+
+/* Newsletter */
+.newsletter-box {
+    background: linear-gradient(135deg, var(--azul-profundo), var(--azul));
+    border-radius: var(--radius);
+    padding: 40px;
+    color: white;
+}
+
+.newsletter-box h3 { font-family: var(--font-display); font-size: 1.6rem; margin-bottom: 6px; }
+
+/* ========================
+   UBICACIÓN
+   ======================== */
+.ubicacion { background: white; }
+
+.ubicacion-info { display: flex; flex-direction: column; gap: 22px; }
+
+.ubi-item {
+    display: flex; align-items: flex-start; gap: 15px;
+}
+
+.ubi-item i {
+    width: 42px; height: 42px;
+    background: linear-gradient(135deg, var(--azul), var(--azul-claro));
+    color: white; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1rem; flex-shrink: 0;
+}
+
+.ubi-item strong { display: block; font-weight: 700; color: var(--azul-profundo); }
+.ubi-item p { margin: 0; font-size: 0.9rem; color: #555; }
+
+.map-wrapper { border: 3px solid rgba(0,119,182,0.15); }
+
+/* ========================
+   FOOTER
+   ======================== */
+.footer {
+    background: var(--azul-profundo);
+    color: rgba(255,255,255,0.85);
+}
+
+.footer-brand {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    color: white; font-weight: 700;
+}
+
+.footer-brand span { color: var(--azul-claro); }
+
+.footer-desc { font-size: 0.88rem; color: rgba(255,255,255,0.65); line-height: 1.7; }
+
+.footer-title { color: white; font-weight: 800; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 16px; }
+
+.footer-links { list-style: none; padding: 0; }
+.footer-links li { margin-bottom: 9px; }
+.footer-links a { color: rgba(255,255,255,0.65); text-decoration: none; font-size: 0.88rem; transition: var(--transition); }
+.footer-links a:hover { color: var(--azul-claro); padding-left: 4px; }
+
+.footer-contact { list-style: none; padding: 0; }
+.footer-contact li { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; font-size: 0.88rem; color: rgba(255,255,255,0.7); }
+.footer-contact i { color: var(--azul-claro); width: 16px; }
+
+.social-links { display: flex; gap: 10px; margin-top: 16px; }
+.social-links a {
+    width: 38px; height: 38px;
+    background: rgba(255,255,255,0.1);
+    color: white; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    text-decoration: none; font-size: 0.9rem;
+    transition: var(--transition);
+}
+.social-links a:hover { background: var(--azul); transform: translateY(-3px); }
+
+.footer-hr { border-color: rgba(255,255,255,0.1); }
+
+.footer-bottom p { font-size: 0.85rem; color: rgba(255,255,255,0.5); margin: 0; }
+
+/* ========================
+   PÁGINA CONTACTO
+   ======================== */
+.contact-info-card {
+    background: white;
+    border-radius: var(--radius);
+    padding: 28px;
+    box-shadow: var(--shadow);
+}
+
+.ci-item {
+    display: flex; align-items: flex-start; gap: 14px;
+    padding: 16px 0;
+    border-bottom: 1px solid #f0f0f0;
+}
+.ci-item:last-child { border-bottom: none; }
+
+.ci-icon {
+    width: 44px; height: 44px;
+    background: linear-gradient(135deg, var(--azul), var(--azul-claro));
+    color: white; border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1rem; flex-shrink: 0;
+}
+
+.ci-item strong { display: block; font-weight: 700; color: var(--azul-profundo); font-size: 0.88rem; }
+.ci-item p { margin: 3px 0 0; font-size: 0.88rem; color: #555; }
+
+.form-card {
+    background: white;
+    border-radius: var(--radius);
+    padding: 40px;
+    box-shadow: var(--shadow);
+}
+
+.form-control, .form-select {
+    border: 2px solid #e8edf2;
+    border-radius: 10px;
+    font-family: var(--font-body);
+    transition: var(--transition);
+}
+
+.form-control:focus, .form-select:focus {
+    border-color: var(--azul);
+    box-shadow: 0 0 0 3px rgba(0,119,182,0.12);
+}
+
+/* ========================
+   SERVICIOS (página interna)
+   ======================== */
+.servicio-card {
+    background: white;
+    border-radius: var(--radius);
+    padding: 35px 28px;
+    box-shadow: var(--shadow);
+    text-align: center;
+    transition: var(--transition);
+    display: flex; flex-direction: column;
+}
+
+.servicio-card:hover { transform: translateY(-8px); box-shadow: 0 22px 45px rgba(0,0,0,0.14); }
+
+.featured-servicio {
+    background: linear-gradient(160deg, var(--azul-profundo), var(--azul));
+    color: white;
+}
+
+.featured-servicio h3 { color: white !important; }
+.featured-servicio .servicio-list li { color: rgba(255,255,255,0.85) !important; }
+.featured-servicio .servicio-list li i { color: #90e0ef !important; }
+
+.servicio-icon {
+    width: 70px; height: 70px;
+    border-radius: 20px;
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 20px;
+    font-size: 1.8rem; color: white;
+}
+
+.servicio-card h3 {
+    font-family: var(--font-display);
+    color: var(--azul-profundo); font-size: 1.3rem;
+    margin-bottom: 18px;
+}
+
+.servicio-list { list-style: none; padding: 0; text-align: left; }
+.servicio-list li {
+    padding: 10px 0; border-bottom: 1px solid rgba(0,0,0,0.05);
+    display: flex; align-items: center; gap: 12px;
+    font-size: 0.9rem; color: #555;
+}
+.servicio-list li:last-child { border-bottom: none; }
+.servicio-list li i { color: var(--azul); width: 16px; }
+
+.badge-featured {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    color: white; border: 1px solid rgba(255,255,255,0.4);
+    border-radius: 20px; padding: 5px 16px;
+    font-size: 0.82rem; font-weight: 700;
+}
+
+/* CTA Box doctores */
+.cta-box {
+    background: linear-gradient(135deg, var(--azul-profundo), var(--azul));
+    border-radius: var(--radius);
+    padding: 55px 40px;
+    color: white;
+}
+
+.cta-box h3 {
+    font-family: var(--font-display);
+    font-size: 2rem; margin-bottom: 10px;
+}
+
+/* ========================
+   PRODUCTOS
+   ======================== */
+.btn-filtro {
+    border: 2px solid var(--azul);
+    color: var(--azul);
+    border-radius: 22px;
+    padding: 7px 20px;
+    font-weight: 600;
+    font-size: 0.88rem;
+    background: transparent;
+    transition: var(--transition);
+}
+
+.btn-filtro:hover, .btn-filtro.active {
+    background: var(--azul); color: white;
+    transform: translateY(-2px);
+}
+
+.producto-card {
+    background: white;
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+    display: flex; flex-direction: column; height: 100%;
+}
+
+.producto-card:hover { transform: translateY(-8px); box-shadow: 0 20px 40px rgba(0,0,0,0.14); }
+
+.producto-img-wrap {
+    overflow: hidden; height: 190px;
+    background: var(--gris-claro);
+    display: flex; align-items: center; justify-content: center;
+}
+
+.producto-img-wrap img {
+    height: 100%; width: 100%;
+    object-fit: contain; padding: 15px;
+    transition: var(--transition);
+}
+
+.producto-card:hover .producto-img-wrap img { transform: scale(1.08); }
+
+.producto-body { padding: 18px; flex: 1; display: flex; flex-direction: column; }
+
+.producto-cat {
+    background: rgba(0,119,182,0.1);
+    color: var(--azul); border-radius: 10px;
+    padding: 2px 10px; font-size: 0.75rem; font-weight: 700;
+    margin-bottom: 8px; display: inline-block;
+}
+
+.producto-body h3 { font-size: 1rem; color: var(--azul-profundo); font-weight: 700; margin-bottom: 6px; }
+.producto-body p { font-size: 0.82rem; color: #777; flex: 1; line-height: 1.5; }
+
+.producto-footer {
+    display: flex; align-items: center;
+    justify-content: space-between;
+    margin-top: 14px; padding-top: 12px;
+    border-top: 1px solid #f0f0f0;
+}
+
+.precio { font-size: 1.3rem; font-weight: 800; color: var(--verde); }
+
+.btn-agregar {
+    width: 38px; height: 38px;
+    background: var(--azul); color: white;
+    border: none; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    cursor: pointer; transition: var(--transition);
+}
+
+.btn-agregar:hover { background: var(--azul-oscuro); transform: scale(1.1); }
+
+.farmacia-aviso {
+    background: rgba(0,119,182,0.07);
+    border-left: 4px solid var(--azul);
+    border-radius: 8px; padding: 16px 20px;
+    font-size: 0.9rem; color: #444;
+}
+
+/* ========================
+   ANIMACIONES
+   ======================== */
 @keyframes aparecer {
-    from{
-        opacity:0;
-        transform: translateY(40px);
-    }
-    to{
-        opacity:1;
-        transform: translateY(0);
-    }
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
-/* Zoom suave */
-@keyframes zoomIn {
-    from{
-        transform: scale(0.9);
-        opacity:0;
-    }
-    to{
-        transform: scale(1);
-        opacity:1;
-    }
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
 }
 
-/* Pulse botones */
 @keyframes pulse {
-    0%{
-        transform: scale(1);
-    }
-    50%{
-        transform: scale(1.05);
-    }
-    100%{
-        transform: scale(1);
-    }
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
 }
+
+.btn-principal { animation: pulse 3s infinite; }
 
 /* ========================
-HEADER ANIMATION
-======================== */
-
-header{
-    animation: fadeIn 1s ease;
+   RESPONSIVE
+   ======================== */
+@media (max-width: 992px) {
+    .hero { height: 80vh; }
+    .tarjetas-flotantes { height: 120px; }
+    .numero { font-size: 20px; }
 }
 
-.logo img{
-    transition: transform 0.4s ease;
-}
-
-.logo img:hover{
-    transform: rotate(-5deg) scale(1.05);
-}
-
-
-/* ========================
-NAV LINKS ANIMATION
-======================== */
-
-nav ul li a{
-    position: relative;
-}
-
-nav ul li a::after{
-    content:"";
-    position:absolute;
-    width:0%;
-    height:2px;
-    background:#0077b6;
-    left:0;
-    bottom:-4px;
-    transition:0.4s;
-}
-
-nav ul li a:hover::after{
-    width:100%;
-}
-
-
-/* ========================
-HERO ANIMATION
-======================== */
-
-.hero-content{
-    animation: aparecer 1.2s ease;
-}
-
-.hero-content h1{
-    animation: fadeIn 1.5s ease;
-}
-
-.hero-content p{
-    animation: fadeIn 2s ease;
-}
-
-.btn-principal{
-    animation: pulse 2.5s infinite;
-}
-
-.btn-principal:hover{
-    transform: scale(1.08);
-}
-
-
-/* ========================
-TARJETAS HERO
-======================== */
-
-.tarjeta-glass{
-    transition: all 0.4s ease;
-}
-
-.tarjeta-glass:hover{
-    transform: translateY(-8px) scale(1.02);
-}
-
-.tarjeta-azul{
-    transition: all 0.4s ease;
-}
-
-.tarjeta-azul:hover{
-    transform: translateY(-8px);
-}
-
-
-/* ========================
-SERVICIOS PREMIUM
-======================== */
-
-.seccion-servicios-premium{
-    animation: aparecer 1s ease;
-}
-
-.card-white{
-    animation: zoomIn 0.8s ease;
-}
-
-.card-white:hover{
-    transform: translateY(-10px) scale(1.03);
-}
-
-
-/* ========================
-DOCTORES
-======================== */
-
-.doctor{
-    animation: fadeIn 1s ease;
-    transition: transform 0.3s ease;
-}
-
-.doctor:hover{
-    transform: translateY(-8px);
-}
-
-.doctor img{
-    transition: transform 0.4s ease;
-}
-
-.doctor:hover img{
-    transform: scale(1.05);
-}
-
-
-/* ========================
-NOTICIAS
-======================== */
-
-.noticia{
-    animation: fadeIn 1s ease;
-    transition: transform 0.3s ease;
-}
-
-.noticia:hover{
-    transform: translateY(-6px);
-}
-
-
-/* ========================
-PRODUCTOS FARMACIA
-======================== */
-
-.producto{
-    animation: zoomIn 0.8s ease;
-}
-
-.producto img{
-    transition: transform 0.4s ease;
-}
-
-.producto:hover img{
-    transform: scale(1.1);
-}
-
-.producto button{
-    animation: pulse 3s infinite;
-}
-
-
-/* ========================
-PROMOCIONES
-======================== */
-
-.promo{
-    overflow:hidden;
-}
-
-.promo img{
-    transition: transform 0.5s ease;
-}
-
-.promo:hover img{
-    transform: scale(1.08);
-}
-
-
-/* ========================
-BANNER FARMACIA
-======================== */
-
-.contenido-texto{
-    animation: aparecer 1s ease;
-}
-
-.btn-farmacia{
-    position: relative;
-}
-
-.btn-farmacia:hover{
-    transform: scale(1.05);
-}
-
-
-/* ========================
-FOOTER
-======================== */
-
-footer{
-    animation: fadeIn 1.2s ease;
+@media (max-width: 768px) {
+    .hero { height: 75vh; }
+    .hero-content h1 { font-size: 2rem; }
+    .tarjetas-flotantes { flex-direction: column; height: auto; }
+    .tarjeta-glass, .tarjeta-azul { min-height: 70px; }
+    .servicios-info-panel { padding: 40px 20px; }
+    .servicios-header h2 { font-size: 1.8rem; }
+    .servicios-subhead { flex-direction: column; gap: 15px; }
+    .separator { border-left: none; border-top: 1px solid rgba(255,255,255,0.25); padding-left: 0; padding-top: 15px; }
+    .form-card { padding: 25px 18px; }
+    .page-banner h1 { font-size: 1.8rem; }
+    .newsletter-box { padding: 25px; }
+    .doctor-card { width: 100%; max-width: 210px; margin: 0 auto; }
 }
