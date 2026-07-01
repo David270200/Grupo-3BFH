@@ -351,15 +351,79 @@
     </div>
 </footer>
 <div id="modalLogin" class="modal-overlay">
-    <div class="modal-box">
-        <h4>Iniciar Sesion</h4>
-        <button onclick="document.getElementById('modalLogin').style.display='none'">✕</button>
+    <div class="modal-box-split">
+        <button class="modal-cerrar-top" onclick="document.getElementById('modalLogin').style.display='none'" aria-label="Cerrar modal">✕</button>
         
-        <form method="POST" action="login.php">
-            <input type="email" name="correo" placeholder="Correo electrónico">
-            <input type="password" name="clave" placeholder="Contraseña">
-            <button type="submit">Entrar</button>
-        </form>
+        <div class="modal-split-container">
+            
+            <div class="modal-col-visual">
+                <div class="visual-content">
+                    <div class="visual-brand-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    
+
+                    
+                    <p class="visual-quote">
+                        “Cuidamos de ti y de los tuyos con productos de calidad y confianza.”
+                    </p>
+                    <div class="visual-line-accent"></div>
+                </div>
+            </div>
+            
+            <div class="modal-col-form">
+                <div class="form-content-wrapper">
+                    
+                    <h2 class="form-main-title">Iniciar <span class="accent-text">Sesión</span></h2>
+                    <p class="form-subtitle">Bienvenido de vuelta, inicia sesión para continuar</p>
+                    
+                    <form method="POST" action="login.php">
+                        
+                        <div class="input-field-group">
+                            <i class="far fa-user input-icon-left"></i>
+                            <input type="email" name="correo" placeholder="Usuario o correo electrónico" required>
+                        </div>
+                        
+                        <div class="input-field-group">
+                            <i class="fas fa-lock input-icon-left"></i>
+                            <input type="password" name="clave" placeholder="Contraseña" id="loginPasswordInput" required>
+                            <i class="far fa-eye input-icon-right toggle-password-btn" onclick="togglePasswordVisibility()"></i>
+                        </div>
+                        
+                        <div class="form-options-row">
+                            <label class="checkbox-container">
+                                <input type="checkbox" name="recordarme" checked>
+                                <span class="checkmark"></span>
+                                Recordarme
+                            </label>
+                            <a href="#" class="forgot-password-link">¿Olvidaste tu contraseña?</a>
+                        </div>
+                        
+                        <button type="submit" class="btn-login-submit">
+                            <i class="fas fa-lock btn-inner-icon"></i> Iniciar Sesión
+                        </button>
+                        
+                    </form>
+                    
+                    <div class="divider-text-container">
+                        <span class="divider-line"></span>
+                        <span class="divider-text">o continúa con</span>
+                        <span class="divider-line"></span>
+                    </div>
+                    
+                    <button class="btn-google-auth">
+                        <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" alt="Google" class="google-logo-icon">
+                        Continuar con Google
+                    </button>
+                    
+                    <p class="form-footer-register-text">
+                        ¿No tienes cuenta? <a href="contacto.html" class="register-link-highlight">Regístrate aquí</a>
+                    </p>
+                    
+                </div>
+            </div>
+            
+        </div>
     </div>
 </div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
