@@ -255,9 +255,123 @@
 
         </section>
 
+        // ══════════════════════════════
+             SECCIÓN: CONFIGURACIÓN PHP
+        // ══════════════════════════════
+
+        <?php
+
+        $conexion = mysqli_connect("localhost","root","","semestral");
+
+        if(isset($_POST["guardar"])){
+
+        $id = (int)$_POST["id"];
+        $stock = (int)$_POST["stock"];
+
+        mysqli_query($conexion,
+        "UPDATE productos
+         SET STOCK = $stock
+         WHERE ID = $id");
+
+        }
+
+        $resultado = mysqli_query($conexion,"SELECT * FROM productos");
+
+        ?>
+        
+
+            // FORM BUSQUEDA
+            <table class="table table-striped">
+
+    <thead>
+
+        <tr>
+
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Categoría</th>
+            <th>Precio</th>
+            <th>Stock</th>
+            <th></th>
+
+        </tr>
+
+    </thead>
+
+    <tbody>
+
+<?php while($fila = mysqli_fetch_assoc($resultado)){ ?>
+
+<tr>
+
+<form method="POST">
+
+    <td>
+
+        <?= $fila["ID"] ?>
+
+        <input
+            type="hidden"
+            name="id"
+            value="<?= $fila["ID"] ?>">
+
+    </td>
+
+    <td><?= $fila["NOMBRE"] ?></td>
+
+    <td><?= $fila["CATEGORIA"] ?></td>
+
+    <td>$<?= $fila["PRECIO"] ?></td>
+
+    <td>
+
+        <input
+            type="number"
+            name="stock"
+            value="<?= $fila["STOCK"] ?>"
+            class="form-control">
+
+    </td>
+
+    <td>
+
+        <button
+            name="guardar"
+            class="btn btn-success">
+
+            Guardar
+
+        </button>
+
+    </td>
+
+            </form>
+
+            </tr>
+
+        <?php } ?>
+
+    </tbody>
+
+        </table>
+
+
+
+
+
+
         <!-- ══════════════════════════════
              SECCIÓN: PRODUCTOS
         ══════════════════════════════ -->
+        
+
+
+
+
+
+
+
+
         <section class="admin-section" id="sec-productos">
 
             <h1 class="section-title">Productos</h1>

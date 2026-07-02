@@ -1,4 +1,13 @@
+
+
+
 <?php
+
+session_start();
+
+$con = mysqli_connect("localhost","root","","semestral");
+
+$productosCarrito = [];
 /* ==========================================================================
    CARRITO DE COMPRAS – BIOFARMA
    --------------------------------------------------------------------------
@@ -21,44 +30,30 @@
 // -----------------------------------------------------------------------
 // DATOS SIMULADOS (reemplazar por datos reales de PHP/MySQL)
 // -----------------------------------------------------------------------
-$productosCarrito = [
-    [
-        "id"        => "1001",
-        "nombre"    => "Paracetamol 500mg",
-        "categoria" => "Analgesico",
-        "imagen"    => "imagenesproductos/paracetamol.jpg",
-        "precio"    => 5.00,
-        "cantidad"  => 2,
-        "stock"     => 25,
-    ],
-    [
-        "id"        => "1002",
-        "nombre"    => "Ibuprofeno 400mg",
-        "categoria" => "Antinflamatorio",
-        "imagen"    => "imagenesproductos/ibuprofeno.webp",
-        "precio"    => 7.50,
-        "cantidad"  => 1,
-        "stock"     => 4,
-    ],
-    [
-        "id"        => "1003",
-        "nombre"    => "Jarabe para la tos",
-        "categoria" => "Respiratorio",
-        "imagen"    => "imagenesproductos/jarabetos.jpg",
-        "precio"    => 10.00,
-        "cantidad"  => 1,
-        "stock"     => 12,
-    ],
-    [
-        "id"        => "1004",
-        "nombre"    => "Control de Presion",
-        "categoria" => "Cardiovascular",
-        "imagen"    => "imagenesproductos/pastillapresion.webp",
-        "precio"    => 15.00,
-        "cantidad"  => 1,
-        "stock"     => 8,
-    ],
-];
+if(isset($_SESSION["carrito"])){
+
+    foreach($_SESSION["carrito"] as $id => $cantidad){
+
+        $sql = "SELECT * FROM productos WHERE ID = $id";
+        $resultado = mysqli_query($con,$sql);
+
+        if($fila = mysqli_fetch_assoc($resultado)){
+
+            $fila["cantidad"] = $cantidad;
+
+            $productosCarrito[] = [
+                "id"        => $fila["ID"],
+                "nombre"    => $fila["NOMBRE"],
+                "categoria" => $fila["CATEGORIA"],
+                "imagen"    => $fila["IMAGEN"],
+                "precio"    => $fila["PRECIO"],
+                "cantidad"  => $cantidad,
+                "stock"     => $fila["STOCK"]
+            ];
+
+        }
+    }
+}
 
 // Cambiar a [] para previsualizar el estado de "carrito vacio"
 // $productosCarrito = [];

@@ -10,6 +10,22 @@
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
 </head>
+
+
+<?php
+
+$conn = mysqli_connect("localhost","root","","semestral");
+
+$sql="SELECT * FROM productos";
+
+$resultado=mysqli_query($conn,$sql);
+
+?>
+
+
+
+
+
 <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top">
     <div class="container">
@@ -68,64 +84,46 @@
             <button class="btn btn-filtro" data-filtro="respiratorio">Respiratorio</button>
         </div>
 
-        <div class="row g-4 justify-content-center" id="contenedorProductos">
-            <div class="col-6 col-md-4 col-lg-3 producto-item" data-cat="analgesico">
-                <div class="producto-card">
-                    <div class="producto-img-wrap"><img src="imagenesproductos/paracetamol.jpg" alt="Paracetamol" class="img-fluid"></div>
-                    <div class="producto-body">
-                        <span class="producto-cat">Analgesico</span>
-                        <h3>Paracetamol</h3>
-                        <p>Alivia el dolor y reduce la fiebre. Formula de rapida absorcion.</p>
-                        <div class="producto-footer">
-                            <span class="precio">$5.00</span>
-                            <button class="btn-agregar" onclick="agregarCarrito(this,'Paracetamol')"><i class="fas fa-cart-plus"></i></button>
-                        </div>
-                    </div>
+        <?php while($fila=mysqli_fetch_assoc($resultado)){ ?>
+
+            <div class="col-6 col-md-4 col-lg-3 producto-item"
+            data-cat="<?= strtolower($fila['CATEGORIA']) ?>">
+
+            <div class="producto-card">
+
+                <div class="producto-img-wrap">
+                <img src="<?= $fila['IMAGEN'] ?>" class="img-fluid">
                 </div>
+
+                <div class="producto-body">
+
+                <span class="producto-cat">
+                <?= $fila['CATEGORIA'] ?>
+                </span>
+
+                <h3><?= $fila['NOMBRE'] ?></h3>
+
+                <div class="producto-footer">
+
+                <span class="precio">
+                    $<?= $fila['PRECIO'] ?>
+                </span>
+
+                <button class="btn-agregar"
+                        onclick="agregarCarrito(this,'<?= $fila['ID'] ?>')">
+
+                    <i class="fas fa-cart-plus"></i>
+
+                </button>
+
             </div>
-            <div class="col-6 col-md-4 col-lg-3 producto-item" data-cat="antinflamatorio">
-                <div class="producto-card">
-                    <div class="producto-img-wrap"><img src="imagenesproductos/ibuprofeno.webp" alt="Ibuprofeno" class="img-fluid"></div>
-                    <div class="producto-body">
-                        <span class="producto-cat">Antinflamatorio</span>
-                        <h3>Ibuprofeno</h3>
-                        <p>Antinflamatorio y analgesico de amplio espectro.</p>
-                        <div class="producto-footer">
-                            <span class="precio">$7.50</span>
-                            <button class="btn-agregar" onclick="agregarCarrito(this,'Ibuprofeno')"><i class="fas fa-cart-plus"></i></button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-6 col-md-4 col-lg-3 producto-item" data-cat="respiratorio">
-                <div class="producto-card">
-                    <div class="producto-img-wrap"><img src="imagenesproductos/jarabetos.jpg" alt="Jarabe para la tos" class="img-fluid"></div>
-                    <div class="producto-body">
-                        <span class="producto-cat">Respiratorio</span>
-                        <h3>Jarabe para la tos</h3>
-                        <p>Alivia los sintomas de la tos y el resfriado.</p>
-                        <div class="producto-footer">
-                            <span class="precio">$10.00</span>
-                            <button class="btn-agregar" onclick="agregarCarrito(this,'Jarabe para la tos')"><i class="fas fa-cart-plus"></i></button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-6 col-md-4 col-lg-3 producto-item" data-cat="cardiovascular">
-                <div class="producto-card">
-                    <div class="producto-img-wrap"><img src="imagenesproductos/pastillapresion.webp" alt="Pastilla presion" class="img-fluid"></div>
-                    <div class="producto-body">
-                        <span class="producto-cat">Cardiovascular</span>
-                        <h3>Control de Presion</h3>
-                        <p>Trata la hipertension y ayuda a mantener la presion arterial estable.</p>
-                        <div class="producto-footer">
-                            <span class="precio">$15.00</span>
-                            <button class="btn-agregar" onclick="agregarCarrito(this,'Control de Presion')"><i class="fas fa-cart-plus"></i></button>
-                        </div>
-                    </div>
-                </div>
-            </div>
+
         </div>
+
+    </div>
+
+</div>
+<?php } ?>
 
         <!-- Toast notificacion carrito -->
         <div class="toast-container position-fixed bottom-0 end-0 p-3">
@@ -294,10 +292,25 @@ document.querySelectorAll(".btn-filtro").forEach(btn => {
 
 // Toast carrito
 function agregarCarrito(btn, nombre) {
-    document.getElementById("toastMsg").textContent = nombre + " agregado a tu carrito.";
+
+    document.getElementById("toastMsg").textContent =
+        nombre + " agregado a tu carrito.";
+
     const toastEl = document.getElementById("toastCarrito");
-    const toast = new bootstrap.Toast(toastEl, { delay: 3000 });
+    const toast = new bootstrap.Toast(toastEl,{delay:3000});
     toast.show();
+
+    fetch("agregar_carrito.php",{
+
+        method:"POST",
+
+        headers:{
+            "Content-Type":"application/x-www-form-urlencoded"
+        },
+
+        body:"producto="+encodeURIComponent(id)
+
+    });
 }
 </script>
 </body>
